@@ -1,6 +1,7 @@
 # 程序员的自我修养
 
-写在最前面
+这个repo的大致的想法是，把自己看到的东西或者觉得不错的一些零散碎片的东西，整理上来。
+
 
 -----
 
@@ -36,7 +37,7 @@
 
 ## Linux
 
-> [Linux 命令]()
+> [Linux 命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4.md)
 
 ## 编码实践/设计模式
 
@@ -46,10 +47,14 @@
 
 ## 书单
 
-> 技术类
+> [技术类](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/技术类的书单.md)
 
 > 非技术类
 
 ## 工具
 
 ## 后记
+
+**Typesetting**
+
+内容按照 [中文文案排版指北](https://mazhuang.org/wiki/chinese-copywriting-guidelines/) 进行排版。
