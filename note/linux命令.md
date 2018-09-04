@@ -2,15 +2,15 @@
 
 ## 目录
 
-* [Linux 基础](#Linux 基础)
+* [Linux 基础](#Linux基础)
 
-* [Linux 工具命令](#Linux 工具命令)
+* [Linux 工具命令](#Linux工具命令)
 
     * [GDB 命令]
 
     * [MAKE 命令]
 
-* [Linux 进阶](#linux 进阶)
+* [Linux 进阶](#linux进阶)
 
 * [参考资料](#参考资料)
 
