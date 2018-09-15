@@ -18,6 +18,10 @@
 
 ## Linux 基础
 
+* which 命令
+
+* tcpdump 命令
+
 ## Linux 工具命令
 
 ## Linux 进阶
