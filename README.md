@@ -26,6 +26,8 @@
 
 ## C/C++
 
+> [cpp 语法](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/cpp.md)
+
 ## 操作系统
 
 > [unix环境高级编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/apue.md)
