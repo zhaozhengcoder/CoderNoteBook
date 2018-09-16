@@ -24,7 +24,65 @@
 
 ## Linux 工具命令
 
+* GDB 命令
+
+    * GDB 调试
+        ```
+        run + 参数  #开始
+        break       #断点
+
+        next      #下一行
+        step      #单步进入
+        continue  #跳到下一个断点
+        ```
+    * attach
+        ```
+        gdb attach 进程号
+        ```
+    
+    * 处理corefile
+        ```
+        gdb a.out core.xxxx
+        ```
+
+    * 调试多进程
+
+        方式1：
+        ```
+        gdb attach 进程号
+        ```
+
+        方式2：使用follow-fork-mode
+        ```
+        (gdb) set follow-fork-mode child   # 表示调试子进程
+        (gdb) set follow-fork-mode parent  # 表示调试子进程
+        ```
+
+    * 调试多线程
+        
+        ```
+        info threads              # 查看线程信息
+        set scheduler-locking on  # 锁定线程
+        thread 2                  # 选择要调试的线程
+        ```
+
 ## Linux 进阶
+
+* netstat
+
+* iostat
+
+* ifstat
+
+* vmstat
+
+* mpstat
+
+* strace
+
+    跟踪系统运行的过程中，执行的系统调用和收到的信号。
+
+* nc
 
 
 ## 参考资料
