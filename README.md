@@ -26,11 +26,13 @@
 
 ## C/C++
 
-> 子标题1
-
 ## 操作系统
 
+> [unix环境高级编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/apue.md)
+
 ## 计算机网络
+
+> [网络编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.md)
 
 ## 数据库
 
