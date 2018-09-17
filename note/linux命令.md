@@ -66,6 +66,11 @@
         thread 2                  # 选择要调试的线程
         ```
 
+    * 推荐一个教程
+
+        https://wizardforcel.gitbooks.io/100-gdb-tips/content/ 
+
+
 ## Linux 进阶
 
 * netstat
