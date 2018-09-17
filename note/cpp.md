@@ -3,6 +3,7 @@
 ## 目录
 
 
+
 ---
 
 * extern 关键字
@@ -105,7 +106,8 @@
         return A();
     }
 
-    int main() {
+    int main() 
+    {
         A a = GetA();
         return 0;
     }
@@ -270,13 +272,210 @@
 
         move的作用就是把左值变成右值，这样就可以调用移动构造函数。就避免了拷贝，提高了程序性能。
 
+        ```
+        {
+            // 正常的vector拷贝
+            vector<int> vi = {1,2,3,4,5,65,6,0};
+            vector<int> vv = vi;
+        }
+        {
+            // 使用move，更加高效的拷贝vector
+            // 拷贝完成之后，vi2的元素被移动到vv2里面，然后vi2就是一个空的vector
+            vector<int> vi2 = {4,3,54,6,234,234234,234};
+            vector<int> vv2 = move(vi2);
+            
+            cout<<"size : "<<vi2.size()<<"  "<<vv2.size()<<endl;
+            vi2.push_back(-1);
+            cout<<"size : "<<vi2.size()<<"  "<<vv2.size()<<endl;
+        }
+        ```
+
+        ```
+        # 输出
+        size : 0  7
+        size : 1  7
+        ```
+
+        如果不用 std::move，拷贝的代价很大，性能较低。使用move几乎没有任何代价，只是转换了资源的所有权。他实际上将左值变成右值引用，然后应用移动语义，调用移动构造函数，就避免了拷贝，提高了程序性能。
+
+
     * 完美转发 forward
 
         在函数模板中，完全依照模板的参数的类型（即保持参数的左值、右值特征），将参数传递给函数模板中调用的另外一个函数。
 
 * 智能指针
 
+    * 为什么要使用智能指针？
+
+        c++ 是一个需要手动执行gc的语言，new 和 delete 如果没有成对出现，就会出现内存泄漏的问题。
+
+    * 如果使用？
+
+        * shared_ptr
+            ```
+            //test 是一个class ，需要include <memory>
+            //创建
+            shared_ptr<test> p_test(new test());
+            
+            //调用
+            p_test->print_func();
+
+            //查看引用计数
+            cout<<p_test.use_count()<<endl;
+
+            //多个指针，指向一个对象
+            shared_ptr<test> p_test2;
+            p_test2 = p_test;
+            cout<<p_test.use_count()<<"  "<<p_test2.use_count()<<endl;
+            ```
+
+            shared_ptr 实现的原理是对 对象的引用计数，引用计数就会出现一个问题，就是相互引用的出现。
+            ```
+            class B;
+            class A
+            {
+            public:
+                shared_ptr<B> pb_;
+                ~A()
+                {
+                    cout<<"A delete\n";
+                }
+            };
+            class B
+            {
+            public:
+                shared_ptr<A> pa_;
+                ~B()
+                {
+                    cout<<"B delete\n";
+                }
+            };
+            
+            void fun()
+            {
+                shared_ptr<B> pb(new B());
+                shared_ptr<A> pa(new A());
+                pb->pa_ = pa;
+                pa->pb_ = pb;
+                cout<<pb.use_count()<<endl;
+                cout<<pa.use_count()<<endl;
+            }
+            
+            int main()
+            {
+                fun();
+                return 0;
+            }
+            ```
+
+        * weak_ptr
+
+            weak_ptr是用来解决shared_ptr相互引用时的死锁问题,如果说两个shared_ptr相互引用,那么这两个指针的引用计数永远不可能下降为0,资源永远不会释放。它是对对象的一种弱引用，不会增加对象的引用计数，和shared_ptr之间可以相互转化，shared_ptr可以直接赋值给它，它可以通过调用lock函数来获得shared_ptr。
+
+            ```
+            class B;
+            class A
+            {
+            public:
+                weak_ptr<B> pb_;
+                ~A()
+                {
+                    cout<<"A delete\n";
+                }
+            };
+            class B
+            {
+            public:
+                shared_ptr<A> pa_;
+                ~B()
+                {
+                    cout<<"B delete\n";
+                }
+            };
+            
+            void fun()
+            {
+                shared_ptr<B> pb(new B());
+                shared_ptr<A> pa(new A());
+                pb->pa_ = pa;
+                pa->pb_ = pb;
+                cout<<pb.use_count()<<endl;
+                cout<<pa.use_count()<<endl;
+            }
+            
+            int main()
+            {
+                fun();
+                return 0;
+            }
+            ```
+
+        * unique_ptr 
+
+            unique_ptr 是一个独享所有权的智能指针。无法进行复制构造，无法进行复制赋值操作。即无法使两个unique_ptr指向同一个对象。但是可以进行移动构造和移动赋值操作。
+
 * 函数指针
+
+    定义一个函数的指针
+    ```
+    int func1(int val)
+    {
+        cout<<val<<endl;
+    }
+    
+    int main()
+    {
+        //定义一个函数指针
+        int (*pfunc)(int) = NULL;
+        
+        pfunc = func1;
+        pfunc(100);
+        
+        return 0;
+    }
+    ```
+
+    使用函数指针作为参数
+    ```
+    int func1(int val)
+    {
+        cout<<val<<endl;
+    }
+
+    int test(int (*pfunc)(int), int val)
+    {
+        pfunc(val);
+    } 
+    int main()
+    {
+        //定义一个函数指针
+        int (*pfunc)(int) = NULL;
+        pfunc = func1;
+
+        test(pfunc,10);
+        
+        return 0;
+    }
+    ```
+
+    typedef 简化函数指针类型
+    ```
+    float add(float a,float b)
+    {
+        cout<<a<<"  "<<b<<endl;
+        return a+b;
+    }
+
+    typedef float(*pfunType)(float, float);
+
+    int main()
+    {
+        pfunType p = add;
+        p(3.33, 2.22);
+
+        return 0;
+    }
+    ```
 
 * cpp11的语法糖
 
