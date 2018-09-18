@@ -2,9 +2,11 @@
 
 ## 目录
 
-
+* [语法](#语法)
+* [比较重要的零散的东西](#比较重要的零散的东西)
 
 ---
+## 语法
 
 * extern 关键字
 
@@ -479,4 +481,54 @@
 
 * cpp11的语法糖
 
+    * for-each
+        ```
+        vector<int> vi = {1,2,3,4,5,6,7};
+
+        for(auto val : vi)
+        {
+            cout<<val<<endl;
+        }
+
+        for(auto & val : vi)
+        {
+            val = val * 2;
+            cout<<val<<endl;
+        }
+        ```
+
+    * auto
+        ```
+        auto iter = vi.begin()
+        ```
+
+    * lambda
+        ```
+
+        ```
+
 * 模板与泛型编程
+
+* 异常机制
+
+
+## 比较重要的零散的东西
+
+* 拷贝构造函数
+
+    下面这段代码有什么问题？
+    ```
+    class A
+    {
+        private:
+            int m;
+        public:
+            A() { m=10; }
+            A(A other) { m = other.m; }
+    };
+    ```
+
+    拷贝构造函数无法通过编译。原因是，实参给形参赋值的时候，又存在一个给调用拷贝构造函数的过程。因此必须要改成 const + 引用的形式。
+    ```
+    A(const A & other) { m = other.m; }
+    ```
