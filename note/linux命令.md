@@ -22,6 +22,12 @@
 
 * tcpdump 命令
 
+* ps命令
+
+    * ps查看线程
+    
+        ps -T -p pid
+
 ## Linux 工具命令
 
 * GDB 命令
