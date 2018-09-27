@@ -1,5 +1,7 @@
 # 前置声明
 
+举个例子
+
 ```
 void func(DATA data,ADDRESS address)
 {
