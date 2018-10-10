@@ -6,11 +6,13 @@
 
 * [Linux 工具命令](#Linux工具命令)
 
-    * [GDB 命令]
+    * [GDB]
 
-    * [MAKE 命令]
+    * [MAKE]
 
-    * [GCC/G++ 命令]
+    * [CMAKE]
+
+    * [GCC/G++]
 
     * [vim]
 

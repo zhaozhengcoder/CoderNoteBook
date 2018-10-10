@@ -21,6 +21,7 @@
 * [关注的人 / Blog](#关注的人/Blog)
 * [源码 / 开源项目](#源码/开源项目)
 * [后记 / 参考文献](#后记)
+* [编码风格](#编码风格)
 
 ---
 
@@ -61,6 +62,10 @@
 ## 源码/开源项目
 
 > [开源项目]()
+
+## 编码风格
+
+> [Google-style](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
 ## 后记
 
