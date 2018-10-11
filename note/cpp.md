@@ -20,6 +20,12 @@
     * STL迭代器失效
 
 ---
+
+## 关于C++ 
+
+关于c++分享一篇我觉得写的很好的文章
+http://www.cnblogs.com/miloyip/archive/2010/09/17/behind_cplusplus.html
+
 ## 语法
 
 * extern 关键字
