@@ -59,6 +59,32 @@
 
 ## 工具
 
+## 关注的人 / 大牛 
+
+> [C++大牛的博客](https://gist.github.com/wen-long/d4d2eb183f1a3d6834c3)
+
+### 博客BLOG 
+
+这些是我整理的一些，感觉是一些有意思的人。
+
+* [张洋的blog](http://blog.codinglabs.org/pages/about-me.html)
+
+* [果冻想](https://www.jellythink.com/)
+
+* [lifeofzjs](http://lifeofzjs.com/)
+
+* [tiankonguse](http://github.tiankonguse.com/)
+
+* [关于机器学习的算法的blog](liuyaolei.com/archives/)
+
+* [阮一峰](http://www.ruanyifeng.com/blog/archives.html)
+
+* [selfboot](https://selfboot.cn/)
+
+* [cizixs](https://cizixs.com/)
+
+* [c++的一个blog](https://blog.csdn.net/watson2016/article/list/6)
+
 ## 源码/开源项目
 
 > [开源项目]()
