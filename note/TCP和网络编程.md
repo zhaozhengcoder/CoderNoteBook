@@ -344,3 +344,24 @@ select，poll，epoll 虽然可以同时监听多个文件描述符，但是它�
         }   
     }
     ```
+
+
+## TCP内核缓冲区大小
+
+```
+$ sysctl -A | grep tcp.*mem
+
+sysctl: permission denied on key 'fs.protected_hardlinks'
+sysctl: permission denied on key 'fs.protected_symlinks'
+sysctl: permission denied on key 'kernel.cad_pid'
+sysctl: permission denied on key 'kernel.unprivileged_userns_apparmor_policy'
+sysctl: permission denied on key 'kernel.usermodehelper.bset'
+sysctl: permission denied on key 'kernel.usermodehelper.inheritable'
+sysctl: permission denied on key 'net.ipv4.tcp_fastopen_key'
+sysctl: permission denied on key 'net.ipv6.conf.all.stable_secret'
+net.ipv4.tcp_mem = 187974       250633  375948
+net.ipv4.tcp_rmem = 4096        87380   6291456
+net.ipv4.tcp_wmem = 4096        16384   4194304
+```
+
+这里的tcp输入和输出缓冲区的大小都是2MB。
