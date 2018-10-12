@@ -111,7 +111,7 @@ linux可以把所有的东西都可以看成文件，对于一个文件，基本
     stdin，stdout，stderr默认是连接至终端，也就是从终端获取输入和输出。但是也可以通过重定向修改默认的路径。
 
     ```
-    ./a.out < /etc/passwd  > std.out 2>std.err
+    ./a.out < /etc/passwd  > std.out 2 > std.err
 
     # 这个表示 
     # stdin 是从 /etc/passwd 获得输入
@@ -121,6 +121,24 @@ linux可以把所有的东西都可以看成文件，对于一个文件，基本
 
     如果stdin，stdout被重定向到文件，那么它们就变成全缓冲了。
 
+
+    ```
+    #include <iostream>                                                                              #include <string>
+    using namespace std;
+
+    int main()
+    {
+        string str;
+        cin>>str;
+        cout<<str<<endl;
+        return 0;
+    }
+    ```
+
+    ```
+    # 将输入重定向到1.txt ，将输出重定向到 out.txt
+    ./a.out < 1.txt > out.txt
+    ```
 
 ## 进程环境
 

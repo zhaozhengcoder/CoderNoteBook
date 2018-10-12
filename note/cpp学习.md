@@ -1,4 +1,4 @@
-# C++ 
+# C++ 学习
 
 ## 目录
 
@@ -6,12 +6,12 @@
 
     * extern 
     * 初始化列表初始化
-    * 右值引用
+    * 右值引用 / move / 移动构造函数 / 移动赋值函数
     * 智能指针
     * 函数指针
     * cpp11的语法糖
-    * [临时对象](##临时对象)
-    * 作用域符号::
+    * 临时对象
+    * 作用域符号 : :
 
 * [比较重要的零散的东西](#比较重要的零散的东西)
 
@@ -320,6 +320,67 @@ http://www.cnblogs.com/miloyip/archive/2010/09/17/behind_cplusplus.html
 
         如果不用 std::move，拷贝的代价很大，性能较低。使用move几乎没有任何代价，只是转换了资源的所有权。他实际上将左值变成右值引用，然后应用移动语义，调用移动构造函数，就避免了拷贝，提高了程序性能。
 
+    * 移动构造函数 / 移动赋值函数 
+        ```
+        class Socket
+        {
+            private:
+                int _sockfd;
+            public:
+                explicit Socket(int sockfd);
+                ~Socket();
+
+                // 移动构造函数
+                Socket(Socket && rhs) :Socket(rhs._sockfd)
+                {
+                    cout << "Socket(Socket && rhs)" << endl;
+                    rhs._sockfd = -1;
+                }
+
+                // 移动赋值函数
+                Socket& operator=(Socket&& rhs)
+                {
+                    cout << "Socket& operator=(Socket&& rhs)" << endl;
+                    swap(rhs);
+                    return *this;
+                }
+
+                void swap(Socket& rhs)
+                {
+                    cout << "void swap(Socket& rhs)" << endl;
+                    std::swap(_sockfd, rhs._sockfd);
+                }
+        };
+
+
+        Socket::Socket(int sockfd):_sockfd(sockfd)
+        {
+            cout << "Socket::Socket(int sockfd)" << endl;
+        }
+
+        Socket::~Socket()
+        {
+            cout << "Socket::~Socket()" << endl;
+            if (_sockfd > 0)
+            {
+                //int ret = ::close(_sockfd);
+            }
+        }
+
+
+        int main()
+        {
+            Socket s1(100);
+            Socket s2(200);
+
+            s1 = move(s2);
+            // Socket s4(move(s1));
+            // Socket s5 = 100;   // explicit , error
+            // Socket s6 = s5;    // no copy constructor , error
+
+            return 0;
+        }
+        ```
 
     * 完美转发 forward
 

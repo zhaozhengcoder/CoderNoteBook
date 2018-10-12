@@ -364,4 +364,12 @@ net.ipv4.tcp_rmem = 4096        87380   6291456
 net.ipv4.tcp_wmem = 4096        16384   4194304
 ```
 
-这里的tcp输入和输出缓冲区的大小都是2MB。
+这里的tcp输入和输出缓冲区的大小都是2MB。如果发送的数据将tcp的发送缓冲区写满了，**程序就阻塞在这里了**。这个一定要注意，很多情况的阻塞都是这样发生的。
+
+
+使用netstat的命令，可以查看缓冲区里面数据的大小。这个recv-q 和 send-q 就是缓冲区的大小。
+```
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 127.0.0.1:27017         0.0.0.0:*               LISTEN      -
+tcp        0      0 127.0.0.1:3306          0.0.0.0:*               LISTEN      -
+```
