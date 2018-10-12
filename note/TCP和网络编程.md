@@ -22,6 +22,8 @@
 
     * close 和 shutdown 的区别
 
+    * sockaddr 和 sockaddr_in 的区别
+
 * [网络编程模型](#网络编程模型)
 
     * 同步io 和 异步 io
@@ -57,6 +59,55 @@
     ```
 
 ## 基本的api使用
+
+* listen 
+
+    listen 函数的第二个参数是等待队列的长度 ， （这个后面在写）
+
+* close 和 shutdown 的区别
+
+
+* sockaddr 和 sockaddr_in 的区别
+
+    ```
+    include <netinet/in.h>  
+  
+    struct sockaddr 
+    {  
+        unsigned short    sa_family;        // 2 bytes address family, AF_xxx  
+        char              sa_data[14];      // 14 bytes of protocol address  
+    };  
+    
+    // IPv4 AF_INET sockets:  
+    struct sockaddr_in 
+    {  
+        short            sin_family;       // 2 bytes e.g. AF_INET, AF_INET6  
+        unsigned short   sin_port;         // 2 bytes e.g. htons(3490)  
+        struct in_addr   sin_addr;         // 4 bytes see struct in_addr, below  
+        char             sin_zero[8];      // 8 bytes zero this if you want to  
+    };  
+    ```
+
+    这两个结构体一样大，都是16个字节，而且都有family属性，不同的是：
+    
+    sockaddr用其余14个字节来表示sa_data，而sockaddr_in把14个字节拆分成sin_port, sin_addr和sin_zero分别表示端口、ip地址。sin_zero用来填充字节使sockaddr_in和sockaddr保持一样大小。
+
+
+    用法 : 
+    ```
+    int sockfd;  
+    struct sockaddr_in servaddr; 
+    sockfd = Socket(AF_INET, SOCK_STREAM, 0);  
+    
+    /* 填充struct sockaddr_in */  
+    bzero(&servaddr, sizeof(servaddr));  
+    servaddr.sin_family = AF_INET;  
+    servaddr.sin_port = htons(SERV_PORT);  
+    inet_pton(AF_INET, "127.0.0.1", &servaddr.sin_addr);  
+    
+    /* 强制转换成struct sockaddr */  
+    connect(sockfd, (struct sockaddr *) &servaddr, sizeof(servaddr));  
+    ```
 
 ## 网络编程模型
 
