@@ -83,7 +83,9 @@
 
 * [cizixs](https://cizixs.com/)
 
-* [c++的一个blog](https://blog.csdn.net/watson2016/article/list/6)
+* [c++的一个blog — watson2016](https://blog.csdn.net/watson2016/article/list/6)
+
+* [c++的一个blog — senlinzhan](http://senlinzhan.github.io/)
 
 ## 源码/开源项目
 

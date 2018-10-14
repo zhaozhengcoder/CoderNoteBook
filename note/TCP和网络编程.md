@@ -66,6 +66,8 @@
 
 * close 和 shutdown 的区别
 
+    http://senlinzhan.github.io/2016/09/15/%E5%AE%89%E5%85%A8%E5%85%B3%E9%97%ADTCP%E8%BF%9E%E6%8E%A5/
+
 
 * sockaddr 和 sockaddr_in 的区别
 
