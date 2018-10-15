@@ -27,15 +27,15 @@
 
 ## C/C++
 
-> [cpp 语法](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/cpp.md)
+> [cpp 语法](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E5%AD%A6%E4%B9%A0.md)
 
 ## 操作系统
 
-> [unix环境高级编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/apue.md)
+> [unix环境高级编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)
 
 ## 计算机网络
 
-> [网络编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.md)
+> [网络编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/TCP%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.md)
 
 ## 数据库
 
@@ -89,7 +89,9 @@
 
 ## 源码/开源项目
 
-> [开源项目]()
+> [小的组件和轮子](https://github.com/zhaozhengcoder/rebuild-the-wheel)
+
+> [muduo](https://github.com/zhaozhengcoder/muduo)
 
 ## 编码风格
 

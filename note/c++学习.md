@@ -384,6 +384,15 @@ http://www.cnblogs.com/miloyip/archive/2010/09/17/behind_cplusplus.html
         }
         ```
 
+        ```
+        # 输出
+        Socket::Socket(int sockfd) fd : 100         # Socket s1(100); 的输出
+        Socket::Socket(int sockfd) fd : 200         # Socket s2(200); 的输出
+        Socket& operator=(Socket&& rhs)             # s1 = move(s2);  的输出
+        Socket::Socket(int sockfd) fd : 100         # Socket s4(move(s1)); 的输出 ，fd=100 是 Socket(Socket && rhs) :Socket(rhs._sockfd) 由这个产生的
+        Socket(Socket && rhs)
+        ```
+
     * 完美转发 forward
 
         在函数模板中，完全依照模板的参数的类型（即保持参数的左值、右值特征），将参数传递给函数模板中调用的另外一个函数。
