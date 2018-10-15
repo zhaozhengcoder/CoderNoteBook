@@ -237,6 +237,31 @@ ulimit -c 1024        # 修改成1024，这样就可以产生core file了
 
 跟踪系统运行的过程中，执行的系统调用和信号。这个简直就是debug的神器呀。
 
+比如说，写了一个tcp的程序，然后程序运行之后阻塞在一个地方，可以用这个命令来查看。
+
+```
+strace ./a.out -l 5003
+```
+
+```
+strace ./netcat -l 5003
+execve("./netcat", ["./netcat", "-l", "5003"], [/* 17 vars */]) = 0
+brk(NULL)                               = 0x97a000
+access("/etc/ld.so.nohwcap", F_OK)      = -1 ENOENT (No such file or directory)
+
+...
+
+futex(0x7f9adebcf1ac, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+futex(0x7f9adebcf1b8, FUTEX_WAKE_PRIVATE, 2147483647) = 0
+socket(PF_INET, SOCK_STREAM|SOCK_CLOEXEC, IPPROTO_TCP) = 3
+setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
+bind(3, {sa_family=AF_INET, sin_port=htons(5003), sin_addr=inet_addr("0.0.0.0")}, 16) = 0
+listen(3, 128)                          = 0
+accept(3,
+```
+
+说明程序阻塞在了accept上面。当然，这个用gdb也可以实现。
+
 
 ### nc
 
