@@ -357,7 +357,7 @@ http://www.cnblogs.com/miloyip/archive/2010/09/17/behind_cplusplus.html
 
         Socket::Socket(int sockfd):_sockfd(sockfd)
         {
-            cout << "Socket::Socket(int sockfd)" << endl;
+           cout << "Socket::Socket(int sockfd) fd : "<<sockfd<< endl;
         }
 
         Socket::~Socket()
@@ -376,7 +376,7 @@ http://www.cnblogs.com/miloyip/archive/2010/09/17/behind_cplusplus.html
             Socket s2(200);
 
             s1 = move(s2);
-            // Socket s4(move(s1));
+            Socket s4(move(s1));
             // Socket s5 = 100;   // explicit , error
             // Socket s6 = s5;    // no copy constructor , error
 

@@ -206,6 +206,11 @@
             srcfiles := $(wildcard src/*.txt)
             ```
 
+            一个目录下面所有的.c 文件
+            ```
+            src = $(wildcard *.c ./sub/*.c)
+            ```
+
 ## Linux 进阶
 
 * netstat
