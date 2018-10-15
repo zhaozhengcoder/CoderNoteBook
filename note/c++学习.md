@@ -399,16 +399,14 @@ Socket(Socket && rhs)
 
 * 为什么要使用智能指针？
 
-c++ 是一个需要手动执行gc的语言，new 和 delete 如果没有成对出现，就会出现内存泄漏的问题。
-
-* 如果使用？
+    c++ 是一个需要手动执行gc的语言，new 和 delete 如果没有成对出现，就会出现内存泄漏的问题。
 
 * shared_ptr
     ```
     //test 是一个class ，需要include <memory>
     //创建
     shared_ptr<test> p_test(new test());
-    
+
     //调用
     p_test->print_func();
 
@@ -442,7 +440,7 @@ c++ 是一个需要手动执行gc的语言，new 和 delete 如果没有成对�
             cout<<"B delete\n";
         }
     };
-    
+
     void fun()
     {
         shared_ptr<B> pb(new B());
@@ -452,7 +450,7 @@ c++ 是一个需要手动执行gc的语言，new 和 delete 如果没有成对�
         cout<<pb.use_count()<<endl;
         cout<<pa.use_count()<<endl;
     }
-    
+
     int main()
     {
         fun();
@@ -484,7 +482,7 @@ c++ 是一个需要手动执行gc的语言，new 和 delete 如果没有成对�
             cout<<"B delete\n";
         }
     };
-    
+
     void fun()
     {
         shared_ptr<B> pb(new B());
@@ -494,7 +492,7 @@ c++ 是一个需要手动执行gc的语言，new 和 delete 如果没有成对�
         cout<<pb.use_count()<<endl;
         cout<<pa.use_count()<<endl;
     }
-    
+
     int main()
     {
         fun();
@@ -506,107 +504,107 @@ c++ 是一个需要手动执行gc的语言，new 和 delete 如果没有成对�
 
     unique_ptr 是一个独享所有权的智能指针。无法进行复制构造，无法进行复制赋值操作。即无法使两个unique_ptr指向同一个对象。但是可以进行移动构造和移动赋值操作。
 
-**注意 ：** 智能指针不能指向一个数组
-```
-{
-    // 下面代码是有问题的
-    string * p = new string[20];
-    shared_ptr<string> ptr(p);
-}
-```
+    **注意 ：** 智能指针不能指向一个数组
+    ```
+    {
+        // 下面代码是有问题的
+        string * p = new string[20];
+        shared_ptr<string> ptr(p);
+    }
+    ```
 
-因为智能指针释放的时候，调用的是delete，而不是delete [] 。
+    因为智能指针释放的时候，调用的是delete，而不是delete [] 。
 
 ## 函数指针
 
-    定义一个函数的指针
-    ```
-    int func1(int val)
-    {
-        cout<<val<<endl;
-    }
+定义一个函数的指针
+```
+int func1(int val)
+{
+    cout<<val<<endl;
+}
+
+int main()
+{
+    //定义一个函数指针
+    int (*pfunc)(int) = NULL;
     
-    int main()
-    {
-        //定义一个函数指针
-        int (*pfunc)(int) = NULL;
-        
-        pfunc = func1;
-        pfunc(100);
-        
-        return 0;
-    }
-    ```
+    pfunc = func1;
+    pfunc(100);
+    
+    return 0;
+}
+```
 
-    使用函数指针作为参数
-    ```
-    int func1(int val)
-    {
-        cout<<val<<endl;
-    }
+使用函数指针作为参数
+```
+int func1(int val)
+{
+    cout<<val<<endl;
+}
 
-    int test(int (*pfunc)(int), int val)
-    {
-        pfunc(val);
-    } 
-    int main()
-    {
-        //定义一个函数指针
-        int (*pfunc)(int) = NULL;
-        pfunc = func1;
+int test(int (*pfunc)(int), int val)
+{
+    pfunc(val);
+} 
+int main()
+{
+    //定义一个函数指针
+    int (*pfunc)(int) = NULL;
+    pfunc = func1;
 
-        test(pfunc,10);
-        
-        return 0;
-    }
-    ```
+    test(pfunc,10);
+    
+    return 0;
+}
+```
 
-    typedef 简化函数指针类型
-    ```
-    float add(float a,float b)
-    {
-        cout<<a<<"  "<<b<<endl;
-        return a+b;
-    }
+typedef 简化函数指针类型
+```
+float add(float a,float b)
+{
+    cout<<a<<"  "<<b<<endl;
+    return a+b;
+}
 
-    typedef float(*pfunType)(float, float);
+typedef float(*pfunType)(float, float);
 
-    int main()
-    {
-        pfunType p = add;
-        p(3.33, 2.22);
+int main()
+{
+    pfunType p = add;
+    p(3.33, 2.22);
 
-        return 0;
-    }
-    ```
+    return 0;
+}
+```
 
 ## cpp11的语法糖
 
-    * for-each
-        ```
-        vector<int> vi = {1,2,3,4,5,6,7};
+* for-each
+    ```
+    vector<int> vi = {1,2,3,4,5,6,7};
 
-        for(auto val : vi)
-        {
-            cout<<val<<endl;
-        }
+    for(auto val : vi)
+    {
+        cout<<val<<endl;
+    }
 
-        for(auto & val : vi)
-        {
-            val = val * 2;
-            cout<<val<<endl;
-        }
-        ```
+    for(auto & val : vi)
+    {
+        val = val * 2;
+        cout<<val<<endl;
+    }
+    ```
 
-    * auto
-        ```
-        auto iter = vi.begin()
-        ```
+* auto
+    ```
+    auto iter = vi.begin()
+    ```
 
-    * lambda
-        ```
+* lambda
+    ```
 
-        ```
+    ```
 
 ## 模板与泛型编程
 
