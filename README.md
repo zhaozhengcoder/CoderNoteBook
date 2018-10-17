@@ -27,17 +27,34 @@
 
 ## C/C++
 
-> [cpp 语法](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E5%AD%A6%E4%B9%A0.md)
+> [c++ 语法](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E5%AD%A6%E4%B9%A0.md)
+
+> [编译，链接，装载](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%BC%96%E8%AF%91%2C%E9%93%BE%E6%8E%A5%E4%B8%8E%E8%A3%85%E8%BD%BD.md)
+
+>[c++的new和delete](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84new%E5%92%8Cdelete.md)
+
+>[c++的多态和虚函数](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84%E5%A4%9A%E6%80%81%E5%92%8C%E8%99%9A%E5%87%BD%E6%95%B0.md)
+
+>[c++的前置声明](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84%E5%89%8D%E7%BD%AE%E5%A3%B0%E6%98%8E.md)
+
+>[c++面向对象](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.md)
+
+>[c++类型转换cast](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.md)
 
 ## 操作系统
 
 > [unix环境高级编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)
+
+
+> [线程同步](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5.md)
 
 ## 计算机网络
 
 > [网络编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/TCP%E5%92%8C%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B.md)
 
 ## 数据库
+
+>[数据库](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93.md)
 
 ## HTTP
 
@@ -58,6 +75,10 @@
 > 非技术类
 
 ## 工具
+
+> [window下的ubuntu子系统](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E5%B7%A5%E5%85%B7%E6%A0%88.md)
+
+>[vscode插件]()
 
 ## 关注的人 / 大牛 
 
