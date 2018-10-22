@@ -110,7 +110,7 @@
 
 ## 源码/开源项目
 
-> [小的组件和轮子](https://github.com/zhaozhengcoder/rebuild-the-wheel)
+> [小的组件和小轮子](https://github.com/zhaozhengcoder/rebuild-the-wheel)
 
 > [muduo](https://github.com/zhaozhengcoder/muduo)
 
