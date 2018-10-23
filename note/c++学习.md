@@ -9,6 +9,7 @@
     * [智能指针](#智能指针)
     * [函数指针](#函数指针)
     * [cpp11的语法糖](#cpp11的语法糖)
+    * [cpp11的新特性](#cpp11的新特性)
     * [临时对象](#临时对象)
     * [作用域符号 : :](#作用域符号)
 
@@ -605,6 +606,38 @@ int main()
     ```
 
     ```
+
+## cpp11的新特性
+
+* 占位符和bind函数 
+
+    https://blog.csdn.net/zhangxiangDavaid/article/details/43638747
+    ```
+    #include <iostream>
+    #include <functional>
+    using namespace std;
+    using namespace std::placeholders;
+    
+    int main()
+    {
+        auto fun = [](int *array, int n, int num){
+            for (int i = 0; i < n; i++)
+            {
+                if (array[i] > num)
+                    cout << array[i] << ends;
+            }
+            cout << endl;
+        };
+        int array[] = { 1, 3, 5, 7, 9 };
+        //_1，_2 是占位符
+        auto fun1 = bind(fun, _1, _2, 5);
+        //等价于调用fun(array, sizeof(array) / sizeof(*array), 5);
+        fun1(array, sizeof(array) / sizeof(*array));
+        
+        return 0;
+    }
+    ```
+
 
 ## 模板与泛型编程
 
