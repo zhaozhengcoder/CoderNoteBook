@@ -51,11 +51,13 @@
 * GDB 调试
     ```
     run + 参数  #开始
-    break       #断点
+    break      #断点
 
     next      #下一行
     step      #单步进入
     continue  #跳到下一个断点
+
+    bt        #查看函数栈
     ```
 * attach
     ```

@@ -11,15 +11,17 @@
 
 ## 如何设计一个不可拷贝的类
 ```
-class nocopy
+class mynoncopyable
 {
-public:
-    nocopy(nocopy & rhs) = delete;
-    void operator=(const noncopyable& rhs) = delete;
+protected:
+    mynoncopyable() {}
+private:
+    mynoncopyable(const mynoncopyable&) = delete;
+    void operator=(const mynoncopyable&) = delete;    
 };
 // =delete 是c++11 的新特性，表示 https://www.ibm.com/developerworks/cn/aix/library/1212_lufang_c11new/index.html
 
-class TEST: public nocopy
+class TEST: public mynoncopyable
 {
     // ...
 };

@@ -59,3 +59,16 @@
             ```
             new (raw_memory) Test();
             ```
+
+
+
+* delete 的时候 我觉得这样安全一点
+
+    ```
+    delete obj;
+    obj = NULL;   # 让指针指空
+    ```
+
+* 推荐阅读
+
+    1. https://wetest.qq.com/lab/view/318.html

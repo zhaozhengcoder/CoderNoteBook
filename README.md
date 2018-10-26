@@ -108,6 +108,8 @@
 
 * [c++的一个blog — senlinzhan](http://senlinzhan.github.io/)
 
+* [c++做游戏开发的一个人](https://me.csdn.net/wallwind)
+
 ## 源码/开源项目
 
 > [小的组件和小轮子](https://github.com/zhaozhengcoder/rebuild-the-wheel)
