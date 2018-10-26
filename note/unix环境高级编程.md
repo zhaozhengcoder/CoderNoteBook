@@ -203,6 +203,9 @@ linux 早期是不支持线程的，直到2.6的版本才开始支持线程库�
     ```
 * 条件变量
 
+    举个小例子，更好理解。
+    https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/example_code/condition.cc
+
 * 屏障
 
 * 线程的属性
