@@ -516,6 +516,67 @@ Socket(Socket && rhs)
 
     因为智能指针释放的时候，调用的是delete，而不是delete [] 。
 
+
+* enable_shared_from_this
+
+    当类A被share_ptr管理，且在类A的成员函数里需要把当前类对象作为参数传给其他函数时，就需要传递一个指向自身的share_ptr。这个时候用enable_shared_from_this 比较好。
+
+    https://blog.csdn.net/caoshangpa/article/details/79392878
+
+    正确的例子：
+    ```
+    #include <memory>
+    #include <iostream>
+
+    struct Good : std::enable_shared_from_this<Good> // 注意：继承
+    {
+    public:
+        std::shared_ptr<Good> getptr() {
+            return shared_from_this();
+        }
+        ~Good() { std::cout << "Good::~Good() called" << std::endl; }
+    };
+
+    int main()
+    {
+        // 大括号用于限制作用域，这样智能指针就能在system("pause")之前析构
+        {
+            std::shared_ptr<Good> gp1(new Good());
+            std::shared_ptr<Good> gp2 = gp1->getptr();
+            // 打印gp1和gp2的引用计数
+            std::cout << "gp1.use_count() = " << gp1.use_count() << std::endl;
+            std::cout << "gp2.use_count() = " << gp2.use_count() << std::endl;
+        }
+        system("pause");
+    }
+    ```
+
+    错误的例子：
+    ```
+    #include <memory>
+    #include <iostream>
+
+    class Bad
+    {
+    public:
+        std::shared_ptr<Bad> getptr() {
+            return std::shared_ptr<Bad>(this);
+        }
+        ~Bad() { std::cout << "Bad::~Bad() called" << std::endl; }
+    };
+
+    int main()
+    {
+        // 错误的示例，每个shared_ptr都认为自己是对象仅有的所有者 
+        // 造成2个非共享的share_ptr指向同一个对象，未增加引用计数导对象被析构两次。
+        std::shared_ptr<Bad> bp1(new Bad());
+        std::shared_ptr<Bad> bp2 = bp1->getptr();
+        // 打印bp1和bp2的引用计数
+        std::cout << "bp1.use_count() = " << bp1.use_count() << std::endl;
+        std::cout << "bp2.use_count() = " << bp2.use_count() << std::endl;
+    }  // Bad 对象将会被删除两次
+    ```
+
 ## 函数指针
 
 定义一个函数的指针
@@ -578,6 +639,56 @@ int main()
     return 0;
 }
 ```
+
+c++11里面提供了bind的函数和placeholder，应该是更加优雅的解决方式。
+```
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include <stdio.h>
+#include <functional>
+
+using namespace std;
+using namespace std::placeholders;
+
+int f(int val, int val2, int val3)
+{
+	cout << "int f(int val, int val2, int val3) : " <<val<<" , "<<val2<<" , "<<val3<< endl;
+	return 100;
+}
+
+class TEST
+{
+public:
+	void test_func(int val,int val2,int val3)
+	{
+		cout << "test_func : " << val << " , " << val2 << " , " << val3 << endl;
+	}
+};
+
+int main()
+{
+	auto p_f = bind(f, 1, 2, 3);
+	p_f();
+
+
+	auto p_f2 = bind(f, _1, _2, _3);  //using namespace std::placeholders;
+	p_f2(1, 2, 3);
+
+	auto p_f3 = bind(f, 100, _1, _2);
+	p_f3(10, 20);
+
+	TEST test;
+	auto p_f4 = bind(&TEST::test_func,test, _1, _2, _3);
+	p_f4(10,20,30);
+
+	return 0;
+}
+
+```
+
+
+https://elloop.github.io/c++/2015-12-15/learning-using-stl-12-std-bind
 
 ## cpp11的语法糖
 
