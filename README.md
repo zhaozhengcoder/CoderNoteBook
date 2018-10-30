@@ -110,6 +110,15 @@
 
 * [c++做游戏开发的一个人](https://me.csdn.net/wallwind)
 
+**中文世界里面的大牛们**
+
+* 陈硕 : https://blog.csdn.net/Solstice
+
+* 云风 ：https://blog.codingnow.com/ 
+
+* milo ： https://www.cnblogs.com/miloyip/
+
+
 ## 源码/开源项目
 
 > [小的组件和小轮子](https://github.com/zhaozhengcoder/rebuild-the-wheel)
