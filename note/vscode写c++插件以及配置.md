@@ -1,0 +1,59 @@
+# vscode 插件
+
+使用vscode开发c/c++,推荐的一些插件。
+
+* c/c++
+
+* c++ intellisense 
+
+* Chinese (Simplified) Language Pack
+
+* C/C++ GNU Global 
+
+    **有的时候vscode会出现F12无法跳转的情况**，解决的办法：
+
+    1. 安装 C/C++ GNU Global 
+
+    2. 安装 gtags
+
+        下载 ： http://adoxa.altervista.org/global/  ，下载win32的版本
+
+        然后，解压缩，可以看到里面包含 3 个文件夹。我们需要把三个文件夹统一移动到 VSCode 的安装目录下。
+
+        然后，将 xxx\glo656wb\bin 加入环境变量。
+
+* YouCompleteMe 
+
+    自动补全代码的插件
+
+
+* 使用Clang-format格式化代码
+
+    这个首先要手动安装一个llvm的东西，然后配置好环境变量。
+
+    "clang-format.executable": "C:/Program Files/LLVM/bin/clang-format.exe"
+
+    这个需要格式化的时候，点击右键->格式化文件，代码就格式化了。
+
+---
+
+* Project Manager
+
+    用来管理工程，可以方便的实现工程切换。
+
+* Bookmarks
+
+    用来标记代码，可以全局跳转，非常方便。
+
+---
+
+* 参考 ： 
+
+    1. https://fallenwood.github.io/2016/05/24/configuring-visual-studio-code/
+
+
+    2. https://blogs.msdn.microsoft.com/c/2016/04/18/visual-studio-code%E7%9A%84cc%E6%89%A9%E5%B1%95%E5%8A%9F%E8%83%BD/
+
+
+    3. 30个极大提高开发效率的VSCode插件 ： https://zhuanlan.zhihu.com/p/40417719
+

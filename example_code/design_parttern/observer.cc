@@ -8,28 +8,30 @@ class OBSERVERABLE;
 
 class OBSERVER
 {
-    private:
-        OBSERVERABLE * _subject;
-    public:
-        void observe(OBSERVERABLE * subject);
-        ~OBSERVER();
-        virtual void update() = 0;
+  private:
+    OBSERVERABLE *_subject;
+
+  public:
+    void observe(OBSERVERABLE *subject);
+    ~OBSERVER();
+    virtual void update() = 0;
 };
 
 class OBSERVERABLE
 {
-    private:
-        vector<OBSERVER *> _observers;
-    public:
-        void notify();
-        void myregister(OBSERVER * observer);
-        void unregister(OBSERVER * observer);
+  private:
+    vector<OBSERVER *> _observers;
+
+  public:
+    void notify();
+    void myregister(OBSERVER *observer);
+    void unregister(OBSERVER *observer);
 };
 
-void OBSERVER::observe(OBSERVERABLE * subject)
+void OBSERVER::observe(OBSERVERABLE *subject)
 {
     _subject = subject;
-    _subject->myregister(this);    
+    _subject->myregister(this);
 }
 
 OBSERVER::~OBSERVER()
@@ -39,39 +41,39 @@ OBSERVER::~OBSERVER()
 
 void OBSERVERABLE::notify()
 {
-    for(int i=0;i<_observers.size();i++)
+    for (int i = 0; i < _observers.size(); i++)
     {
         _observers[i]->update();
-    }    
+    }
 }
 
-void OBSERVERABLE::myregister(OBSERVER * observer)
+void OBSERVERABLE::myregister(OBSERVER *observer)
 {
-    _observers.push_back(observer);    
+    _observers.push_back(observer);
 }
 
-void OBSERVERABLE::unregister(OBSERVER * observer)
+void OBSERVERABLE::unregister(OBSERVER *observer)
 {
-    auto iter = find(_observers.begin(),_observers.end(),observer);
-    if(iter != _observers.end())
+    auto iter = find(_observers.begin(), _observers.end(), observer);
+    if (iter != _observers.end())
     {
-        swap( *iter, _observers.back());
+        swap(*iter, _observers.back());
         _observers.pop_back();
-    }    
+    }
 }
 
 class TEST_OBSERVER : public OBSERVER
 {
-public:
+  public:
     virtual void update()
     {
-        cout<<"foo update"<<endl;
+        cout << "foo update" << endl;
     }
 };
 
 int main()
 {
-    TEST_OBSERVER * t = new TEST_OBSERVER;
+    TEST_OBSERVER *t = new TEST_OBSERVER;
     OBSERVERABLE subject;
     t->observe(&subject);
 
