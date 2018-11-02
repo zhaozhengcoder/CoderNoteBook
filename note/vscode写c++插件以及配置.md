@@ -60,3 +60,8 @@
 
     3. 30个极大提高开发效率的VSCode插件 ： https://zhuanlan.zhihu.com/p/40417719
 
+
+    4. 按f12无法跳转的原因 ： https://blog.csdn.net/danxibaoxxx/article/details/81289651 
+
+        不过这样需要 ctrl+shift+c ,然后运行gtags 
+
