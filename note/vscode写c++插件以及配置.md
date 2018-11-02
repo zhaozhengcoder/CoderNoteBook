@@ -22,7 +22,7 @@
 
         然后，将 xxx\glo656wb\bin 加入环境变量。
 
-* YouCompleteMe 
+* YouCompleteMe , vscode-youcompleteme
 
     自动补全代码的插件
 
