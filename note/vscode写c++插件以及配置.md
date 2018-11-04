@@ -38,6 +38,9 @@
 
 * vscode 还有一个功能就是把 cmd 窗口 连接到里面，这样就可以不用切换窗口了。
 
+    https://www.canftin.com/2018/VSCode%E5%9C%A8WSL%E4%B8%8B%E7%9A%84c-c-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/
+
+    
 ---
 
 * Project Manager
@@ -65,3 +68,4 @@
 
         不过这样需要 ctrl+shift+c ,然后运行gtags 
 
+    5. https://jasper-1024.github.io/2018/03/24/Vscode%E7%B3%BB%E5%88%97-c%E8%AF%AD%E8%A8%80/
