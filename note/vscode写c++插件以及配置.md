@@ -40,7 +40,10 @@
 
     https://www.canftin.com/2018/VSCode%E5%9C%A8WSL%E4%B8%8B%E7%9A%84c-c-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/
 
-    
+* One Dark Pro 
+
+    我很喜欢的颜色主题
+
 ---
 
 * Project Manager
@@ -50,8 +53,6 @@
 * Bookmarks
 
     用来标记代码，可以全局跳转，非常方便。
-
-* 我很喜欢的颜色主题 One Dark Pro 
 
 ---
 
