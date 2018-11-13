@@ -56,6 +56,23 @@
 
 ---
 
+我的vscode的setting.json的配置 : 
+```
+{
+    "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\bash.exe",
+    "git.autofetch": true,
+    "clang-format.executable": "clang-format",
+    "workbench.colorTheme": "One Dark Pro",
+    //"editor.formatOnSave": true
+    "clang.cxxflags": [
+        "-IC:\\Users\\wwwa8\\Documents\\GitHub\\muduo\\build\\release-install\\include"
+    ]
+}
+```
+
+
+---
+
 * 参考 ： 
 
     1. https://fallenwood.github.io/2016/05/24/configuring-visual-studio-code/
