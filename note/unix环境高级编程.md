@@ -300,6 +300,8 @@ linux 早期是不支持线程的，直到2.6的版本才开始支持线程库�
 
     这里有一个文件锁的小例子
 
+    https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/example_code/apue/file_lock.c
+
+
 * 记录锁
 
-    
