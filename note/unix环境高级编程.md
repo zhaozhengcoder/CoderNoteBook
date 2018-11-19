@@ -303,5 +303,17 @@ linux 早期是不支持线程的，直到2.6的版本才开始支持线程库�
     https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/example_code/apue/file_lock.c
 
 
+    这里可以思考一个问题，nginx的work进程之间的互斥锁是如何实现的？
+
+    我看了一下nginx实现的这一部分，nginx的锁是自己实现的，原理好像是两种方式：
+
+    * 共享内存
+
+        线程中实现锁就是通过一个共享的堆上的内存（通过malloc实现），进程中实现锁也是通过这样一个共享的区域来实现进程的同步。说白了就是共享一个变量，然后通过这个变量来控制多个进程同步运行
+
+    * 文件锁
+
+
+
 * 记录锁
 
