@@ -273,7 +273,7 @@ test get_test()
 }
 int main()
 {
-    test && t1 = get_test();
+    test && t1 = get_test();    // -std=c++11
 }
 ```
 
