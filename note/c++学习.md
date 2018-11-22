@@ -862,6 +862,9 @@ int main()
 https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/example_code/cpp/macro.cpp
 
 
+另外一个《effective c++》里面没有讲的区别是，inline是一个请求，对编译器提出优化的请求。但是，编译器不一定会满足它。所以，这里就存在一个负优化的概念。对比说，一个函数无法确定需要不需要inline，那么最好不要自作聪明的加上inline，这样是因为编译器可以对需要被inline的函数自动加上inline，但是如果一个函数本身不需要inline，但是被加上inline，那么编译器很难去判断把inline变成非inline。
+
+
 ## 比较重要的零散的东西
 
 ### 拷贝构造函数
