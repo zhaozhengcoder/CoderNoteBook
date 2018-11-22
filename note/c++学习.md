@@ -858,6 +858,9 @@ int main()
 宏，const，inline的区别在《effective c++》里面的第一部分就由提到。
 但是，我的学习顺序是 先学习了c++，然后再看了c。我会更习惯于用const，inline，而不是宏。
 
+关于宏函数的例子：
+https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/example_code/cpp/macro.cpp
+
 
 ## 比较重要的零散的东西
 
