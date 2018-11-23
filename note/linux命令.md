@@ -20,6 +20,9 @@
 
     * [strace](#strace)
 
+* [Linux 性能优化](#linux性能优化)
+
+
 * [参考资料](#参考资料)
 
 ---
@@ -259,6 +262,21 @@ pub: $(SRC)/pub.cc codec.cc pubsub.cc
 
 ## Linux 进阶
 
+### htop/top命令
+
+top的一部分输出是：
+```
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+1 root      20   0    8304    132    104 S   0.0  0.0   0:00.06 init
+3 root      20   0    8304     92     56 S   0.0  0.0   0:00.00 init
+```
+
+VIRT 的定义是：占用的虚拟内存的大小（占用的物理内存+swap空间）
+
+RES 表示的是：占用的物理内存
+
+SHR 表示的是：占用的是共享内存
+
 ### netstat
 
 ### iostat
@@ -311,7 +329,35 @@ accept(3,
 
 ### ulimit 命令
 
+---
 
+## linux性能优化
+
+看了很多文章，很多大牛都提到要关注自己程序的性能问题。比如说，除了你的程序可以work之外，除此之外，还需要考虑你的程序的cpu占用率，
+内存占用率，io占用率等。这些都是我之前不太care的事情，我现在才开始考虑这个问题。我试着写一些我的理解和总结。
+
+1. 如何发现问题？
+
+    * htop命令可以查看出**瞬时**的资源占用率（cpu，内存等）。如果说，每个进程的cpu的占用率达到了100%，这样是有问题的。说明程序写的非常糟糕。
+
+    * uptime命令可以查看出**平均负载**。
+
+        平均负载的概念非常重要，我简单的理解一下。
+        
+        平均负载 = 活跃进程/ cpu的核心数 ， 活跃进程 = runing的进程 + d状态的进程（不可中断的进程）
+
+        ```
+        uptime
+        22:03:55 up 12 min,  0 users,  load average: 0.52, 0.58, 0.59
+        ```
+
+        如果系统的平均负载不正常，比如大于1的时候，那可能需要思考一下，是不是出问题了。
+
+    * linux的一个压力测试的工具
+
+        stress命令
+
+---
 ## 参考资料
 
 >[GDB 教程](https://wizardforcel.gitbooks.io/100-gdb-tips/set-follow-fork-mode-child.html)
