@@ -287,6 +287,20 @@ SHR 表示的是：占用的是共享内存
 
 ### mpstat
 
+mpstat是Multiprocessor Statistics的缩写，是实时系统监控工具。
+
+```
+# 使用
+mpstat -P ALL 5 3
+
+# 解释
+
+mpstat [-P {|ALL}] [internal [count]]
+
+-P        {|ALL} 表示监控哪个CPU， cpu在[0,cpu个数-1]中取值
+internal  相邻的两次采样的间隔时间、
+count     采样的次数，count只能和delay一起使用
+```
 ### strace
 
 跟踪系统运行的过程中，执行的系统调用和信号。这个简直就是debug的神器呀。
