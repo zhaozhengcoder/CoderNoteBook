@@ -20,6 +20,13 @@
 
     * [strace](#strace)
 
+    * [vmstat](#vmstat)
+
+    * [pidstat](#pidstat)
+
+    * [mpstat](#mpstat)
+
+
 * [Linux 性能优化](#linux性能优化)
 
 
@@ -29,24 +36,59 @@
 
 ## Linux基础
 
-### which 命令
+* which 命令
 
-
-### tcpdump 命令
-
-[tcpdump命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_tcpdump.md)
-
-### ps命令
-
-* 我常用的
+    which + 可执行文件 ，用来查找它的路径和存放的地方。
     ```
-    ps -aux
+    which python
+    /usr/bin/python
     ```
 
-* ps查看线程
+* tcpdump 命令
+
+    [tcpdump命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_tcpdump.md)
+
+*  ps 命令
+
     ```
-    ps -T -p pid
+    ps -aux         # 我常用的
+    ps -T -p pid    # ps查看线程
     ```
+
+* find 命令
+
+    经常的需求就是，比如说要寻找home目录下面某个文件或文件夹。
+    
+    find <指定目录> <指定条件> <指定动作>
+    ```
+    $find . -name 'my*'          # 查找当前目录下面的，名字前缀是my开头的文件或文件夹
+    $find . -name 'my*'   -ls    # 搜索当前目录中，所有文件名以my开头的文件，并显示它们的详细信息。
+    $find . -name '*.cpp' -ls    # 搜索当前目录中，以cpp结尾的文件，并显示它们的详细信息。
+    ```
+
+    **但是，find有一个问题就在文件比较多的时候，很慢。**
+    这个时候locate命令就会更好一点了。
+
+    ```
+    locate ~/code/*.cpp          # 查找~/code目录下面 以cpp结尾的文件
+    ```
+
+* grep 命令
+
+    查找当前文件夹下面，包含iostream字符串的文件。
+    ```
+    grep -rn "iostream"
+    ```
+* sz / rz 命令
+
+    sz 从服务器上面下载一个文件
+
+    rz 上传一个文件给服务器
+
+    **这个命令很适合使用xshell或crt的人，真的很方便。**
+
+* scp 命令
+
 ## Linux工具命令
 
 ### GDB
@@ -277,21 +319,11 @@ RES 表示的是：占用的物理内存
 
 SHR 表示的是：占用的是共享内存
 
-### netstat
-
-### iostat
-
-### ifstat
-
-### vmstat
-
 ### mpstat
-
 mpstat是Multiprocessor Statistics的缩写，是实时系统监控工具。
-
 ```
 # 使用
-mpstat -P ALL 5 3
+mpstat -P ALL 5 3   # 查看所有的cpu的状态，每个5s输出一次，连续输出三次
 
 # 解释
 
@@ -301,6 +333,91 @@ mpstat [-P {|ALL}] [internal [count]]
 internal  相邻的两次采样的间隔时间、
 count     采样的次数，count只能和delay一起使用
 ```
+
+```
+# 对应的输出
+
+11时01分59秒  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+11时02分04秒  all    0.03    0.00    0.03    0.03    0.00    0.00    0.00    0.00    0.00   99.92
+11时02分04秒    0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+11时02分04秒    1    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+11时02分04秒    2    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+11时02分04秒    3    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+11时02分04秒    4    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+11时02分04秒    5    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+11时02分04秒    6    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+11时02分04秒    7    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+
+平均时间:  CPU    %usr   %nice    %sys %iowait    %irq   %soft  %steal  %guest  %gnice   %idle
+平均时间:  all    0.02    0.00    0.07    0.02    0.00    0.00    0.00    0.00    0.00   99.90
+平均时间:    0    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+平均时间:    1    0.00    0.00    0.07    0.13    0.00    0.00    0.00    0.00    0.00   99.80
+平均时间:    2    0.00    0.00    0.07    0.00    0.00    0.00    0.00    0.00    0.00   99.93
+平均时间:    3    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+平均时间:    4    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+平均时间:    5    0.00    0.00    0.13    0.00    0.00    0.00    0.00    0.00    0.00   99.87
+平均时间:    6    0.07    0.00    0.20    0.00    0.00    0.00    0.00    0.00    0.00   99.73
+平均时间:    7    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00    0.00  100.00
+
+# 解释
+%usr	在internal时间段里，用户态的CPU时间（%）
+%nice	在internal时间段里，nice值为负进程的CPU时间（%）
+%sys	在internal时间段里，核心时间（%）	
+%iowait	在internal时间段里，硬盘IO等待时间（%）
+%irq	在internal时间段里，硬中断时间（%）	
+%soft	在internal时间段里，软中断时间（%）
+%steal	显示虚拟机管理器在服务另一个虚拟处理器时虚拟CPU处在非自愿等待下花费时间的百分比	
+%guest	显示运行虚拟处理器时CPU花费时间的百分比	
+%gnice	
+%idle	在internal时间段里，CPU除去等待磁盘IO操作外的因为任何原因而空闲的时间闲置时间（%）
+```
+
+### vmstat
+对操作系统的虚拟内存、进程、CPU活动进行监控
+```
+vmstat 5 3   #采样间隔5s，采样次数2次 
+procs -----------memory----------       ---swap--  -----io----  -system--  ------cpu-----
+ r  b   swpd   free   buff  cache        si   so    bi    bo    in   cs     us sy id wa st
+ 0  0      0 10412656 1056828 3802120    0     0     0     0     0    0     1  1 99  0  0
+
+r表示正在运行的进程的数量
+b表示被阻塞的进程的数量
+
+关于system里面的两个参数：
+in 表示的是 interrupt 中断数
+cs 表示的是 content switch 上下文切换
+
+cpu的里面的参数：
+us 表示 user time ，用户态占用的cpu时间
+sy 表示 system time，内核态占用的cpu时间
+id 表示 idle tiem，闲置的时间
+wa 表示 等待IO时间
+```
+
+### pidstat 
+
+pidstat 默认显示了所有进程的cpu，内存，io的使用率。
+
+```
+pidstat -u   #查看进程的cpu 使用率
+pidstat -r   #查看进程的内存使用率
+pidstat -d   #查看进程的io  使用率
+```
+
+```
+pidstat -t -p 2831  #查看多线程
+```
+
+```
+pidstat -u 1  # 每秒1次的频率输出
+```
+
+### iostat
+
+### ifstat
+
+### netstat
+
 ### strace
 
 跟踪系统运行的过程中，执行的系统调用和信号。这个简直就是debug的神器呀。
@@ -370,6 +487,15 @@ accept(3,
     * linux的一个压力测试的工具
 
         stress命令
+
+        stress可以对某个和cpu模拟出计算密集型的任务和io密集的任务。
+
+        sysbench 命令
+
+        可以模拟出线程的切换
+        ```
+        sysbench --num-threads=30 --max-time=30000 --test=threads run
+        ```
 
 ---
 ## 参考资料
