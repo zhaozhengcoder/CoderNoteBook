@@ -155,3 +155,5 @@ fi
 ## 参考
 
 http://www.runoob.com/linux/linux-shell.html
+
+《linux shell脚本攻略》
