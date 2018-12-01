@@ -73,6 +73,20 @@ g++ main.cpp func.o
 extern 表示这个声明的这个函数是以c的编写的。这个是一个链接指示，表示这个链接这个函数的时候，按照c语言的符号表去查找。
 如果对main.o 文件里面的符号表感兴趣，可以用nm命令来查看。
 
+```
+// 在很多工程代码里面的写法
+
+#ifdef __cplusplus   //__cplusplus 是一个宏，在不同的c++标准的输出都不同  cout<<__cplusplus<<endl;
+extern "C" {
+#endif
+    
+int add(int x, int y);
+    
+#ifdef __cplusplus
+}
+#endif
+```
+
 ### 初始化列表初始化
 
 为什么要使用初始化列表初始化？
@@ -93,7 +107,9 @@ public:
 
 ### 右值引用
 
-右值引用，是c++11里面一个新特性。他解决的问题是：
+右值引用，是c++11里面一个新特性。他解决的问题是：**延长临时对象的生命周期**。
+
+从下面几个方面入手：
 
 * 临时对象非必要的拷贝操作；
 
@@ -322,6 +338,18 @@ desconstruct
 
     如果不用 std::move，拷贝的代价很大，性能较低。使用move几乎没有任何代价，只是转换了资源的所有权。他实际上将左值变成右值引用，然后应用移动语义，调用移动构造函数，就避免了拷贝，提高了程序性能。
 
+    ```
+    // 补充一个例子 
+    vector<string> vi;
+    string str1 = "hello world";
+    string str2 = "hello cpp";
+
+    vi.push_back(str1);
+    cout<<str1<<endl;
+    vi.push_back(move(str2));
+    cout<<str2<<endl;           //st2的输出是空
+    ```
+
 ### 移动构造函数 / 移动赋值函数 
 ```
 class Socket
@@ -402,6 +430,10 @@ Socket(Socket && rhs)
 * 为什么要使用智能指针？
 
     c++ 是一个需要手动执行gc的语言，new 和 delete 如果没有成对出现，就会出现内存泄漏的问题。
+
+    为什么要使用weak_Ptr? 
+
+    weak_Ptr表达的是对资源的弱引用。同时，也可以解决shered_ptr 相互引用，无法gc的情况。
 
 * shared_ptr
     ```
@@ -641,7 +673,27 @@ int main()
 }
 ```
 
-c++11里面提供了bind的函数和placeholder，应该是更加优雅的解决方式。
+c++11使用functional表示函数指针
+```
+#include <iostream>
+#include <functional>
+using namespace std;
+int func(int)
+{
+    cout<<"int func(int)"<<endl;
+}
+
+int main()
+{
+    function<int(int)> func_work2 = func;
+    func_work2(100);
+    return 0;
+}
+```
+
+c++11里面提供了bind的函数和placeholder的实现方式。
+
+**绑定函数调用的参数的，它解决的需求是我们有时候可能并不一定能够一次性获得调用某个函数的全部参数，通过这个函数，我们可以将部分调用参数提前绑定到函数身上成为一个新的对象，然后在参数齐全后，完成调用。**
 ```
 #include <iostream>
 #include <algorithm>
@@ -714,12 +766,23 @@ https://elloop.github.io/c++/2015-12-15/learning-using-stl-12-std-bind
     auto iter = vi.begin()
     ```
 
+* decltype 
+
+    类型推导
+    ```
+    auto x = 100;
+    auto y = 200;
+
+    decltype(x+y) z = 300;   //decltype(x+y) 推到x+y的类型，然后用这个类型定义z
+    cout<<z<<endl;
+    ```
+
 * lambda
     ```
 
     ```
 
-## cpp11的新特性
+## cpp11的其他新特性
 
 * 占位符和bind函数 
 
@@ -750,6 +813,13 @@ https://elloop.github.io/c++/2015-12-15/learning-using-stl-12-std-bind
     }
     ```
 
+* stl 增加的新容器
+
+    unorder_map/set
+
+* 增加跨平台的线程库
+
+    c++11 线程库
 
 ## 模板与泛型编程
 
@@ -874,7 +944,7 @@ https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/example_code/cpp/mac
 
 forceinline字面意思上是强制内联，一般可能只是对代码体积不做限制了，但是对于上面的那些情况仍然不会内联，如果没有内联他会返回一个警告。 构造函数析构函数不建议内联，里面可能会有编译器优化后添加的内容，比如说初始化列表里面的东西。
 
-作者：Jerish
+>作者：Jerish
 链接：https://zhuanlan.zhihu.com/p/47869981
 来源：知乎
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
@@ -900,47 +970,3 @@ class A
 ```
 A(const A & other) { m = other.m; }
 ```
-
-### 一个对象的空间布局（带有虚函数的）
-
-### STL迭代器失效
-
-迭代器失效的原理
-```
-vector<int> vi = {1,2,3};
-iter = vi.begin();
-vi.erase(iter);
-
-//由于iter已经失效，再使用的时候，迭代器已经失效了，无法使用。
-cout<<*iter<<endl;
-```
-
-一般情况下，最容易造成迭代器失效的场景。
-安全的从vector里面删除某些元素。
-```
-void delete_ele(vector<int> &vi,int delete_ele)
-{
-    for (auto iter = vi.begin(); iter != vi.end(); )
-    {
-        if (*iter != delete_ele)
-        {
-            iter = vi.erase(iter);
-        }
-        else
-        {
-            iter++;
-        }
-    }
-}
-
-int main()
-{
-    vector<int> vi = { 1,2,3,3,5,3};
-    delete_ele(vi, 3);
-
-
-    return 0;
-}
-```
-
-    
