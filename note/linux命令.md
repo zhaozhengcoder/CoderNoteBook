@@ -26,6 +26,8 @@
 
     * [mpstat](#mpstat)
 
+    * [perf](#perf)
+
 
 * [Linux 性能优化](#linux性能优化)
 
@@ -454,6 +456,13 @@ accept(3,
 
 说明程序阻塞在了accept上面。当然，这个用gdb也可以实现。
 
+### perf命令
+
+    分析性能问题的一个神器。
+
+    perf top
+
+    perf record
 
 ### nc
 
@@ -474,7 +483,27 @@ accept(3,
 看了很多文章，很多大牛都提到要关注自己程序的性能问题。比如说，除了你的程序可以work之外，除此之外，还需要考虑你的程序的cpu占用率，
 内存占用率，io占用率等。这些都是我之前不太care的事情，我现在才开始考虑这个问题。我试着写一些我的理解和总结。
 
-1. 如何发现问题？
+1. 几个性能指标
+
+* 平均负载
+
+* cpu使用率 
+
+    通常情况下，cpu使用率指的是一段时间间隔的cpu使用率。
+
+    cpu 使用率 = （这是时间段内的 cpu idle 的时间 ） / cpu的测试时间段 
+
+    ```
+    sudo su
+    cat /proc/stat | grep ^cpu
+    ```
+
+    **这个计算的是 （用户态占用cpu时间+内核占用cpu的时间）总共占用的cpu的使用率。**
+
+
+
+
+2. 如何发现问题？
 
     * htop命令可以查看出**瞬时**的资源占用率（cpu，内存等）。如果说，每个进程的cpu的占用率达到了100%，这样是有问题的。说明程序写的非常糟糕。
 
@@ -511,19 +540,20 @@ accept(3,
         # 输出中的RES 表示的是 中断的次数
         ```
 
+    * perf命令
 
-    * linux的一个压力测试的工具
+3. linux的一个压力测试的工具
 
-        stress命令
+    stress命令
 
-        stress可以对某个和cpu模拟出计算密集型的任务和io密集的任务。
+    stress可以对某个和cpu模拟出计算密集型的任务和io密集的任务。
 
-        sysbench 命令
+    sysbench 命令
 
-        可以模拟出线程的切换
-        ```
-        sysbench --num-threads=30 --max-time=30000 --test=threads run
-        ```
+    可以模拟出线程的切换
+    ```
+    sysbench --num-threads=30 --max-time=30000 --test=threads run
+    ```
 
 ---
 ## 参考资料
