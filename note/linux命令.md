@@ -427,6 +427,11 @@ pidstat -u 1  # 每秒1次的频率输出
 
 ### netstat
 
+我经常用的就是 
+```
+netstat -atunlp
+```
+
 ### strace
 
 跟踪系统运行的过程中，执行的系统调用和信号。这个简直就是debug的神器呀。
@@ -456,13 +461,18 @@ accept(3,
 
 说明程序阻塞在了accept上面。当然，这个用gdb也可以实现。
 
-### perf命令
+### perf
 
-    分析性能问题的一个神器。
+分析性能问题的一个神器。
 
-    perf top
+```
+# -g 参数表示记录
+sudo perf top -g -p pid
+```
 
-    perf record
+从perf的输出可以看出，在那些函数执行的时间是比较长的，这样可以帮助对性能问题，进行相关的分析。
+
+![](../pic/perf.png)
 
 ### nc
 
