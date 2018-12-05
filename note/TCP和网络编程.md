@@ -122,7 +122,8 @@
 
     **以上三种可能性中，如果正好时出现第三种情况，那么很幸运。程序会正常工作，如果时1，2情况，那么表示程序一定会丢失掉一部分数据。**
 
-    
+    具体使用tcpdump观察的过程，我写在了这个地方 ： 
+    https://github.com/zhaozhengcoder/CoderNoteBook/tree/master/example_code/network/test_tcp_connect_and_close
 
     参考：
 
