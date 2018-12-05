@@ -575,6 +575,11 @@ sudo perf top -g -p pid
     sysbench --num-threads=30 --max-time=30000 --test=threads run
     ```
 
+    apache ab命令
+    ```
+     ab -c 10 -n 100000 http://192.168.3.110/cal.php?verbose=1
+    ```
+
 ---
 ## 参考资料
 
