@@ -46,6 +46,17 @@
     /usr/bin/python
     ```
 
+* time 命令
+
+    统计一个命令或者可执行文件执行的时间。
+
+    time a.out 
+    ```
+    real	0m2.753s
+    user	0m0.000s
+    sys	0m0.000s
+    ```
+
 * tcpdump 命令
 
     [tcpdump命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_tcpdump.md)
@@ -551,6 +562,18 @@ sudo perf top -g -p pid
     * perf命令
 
         使用perf命令可以找到系统的瓶颈，帮助找到问题出现的地方。
+
+        ```
+        perf record -a -g sleep 10
+        
+        -a  采样所有的cpu
+        -g  采样调用栈
+        sleep 10 采样持续 10s
+        ```
+
+        ```
+        perf report
+        ```
 
 
     * 观察短生命周期的进程
