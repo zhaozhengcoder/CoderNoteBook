@@ -555,12 +555,79 @@ sudo perf top -g -p pid
 
     * 观察短生命周期的进程
 
-        很多时候系统的问题出现在这些短生命周期的进程上面，比如，一个for循环，取执行系统调用 exec("stresss xxx ")。类似于这样。
+        **短生命周期的进程，如果进程本身有bug，通过情况下它干了坏事，会很快结束。一般的工具命令可能难以发现这样的导致这个问题的真正凶手。尤其是频繁创建和结束的短进程。**
 
-        ```
-        execsnoop #命令可以观察短生命周期的进程
-        ```
+ 
+        * 使用execsnoop命令
+            ```
+            execsnoop #命令可以观察短生命周期的进程
+            ```
 
+        * 使用perf record 命令
+
+
+        * 使用pstree的命令
+
+            ```
+            pstree -aps pid 
+            ```
+
+
+
+    * 观察磁盘io
+
+        如果用top查看系统的性能，发现iowait很高。分析的基本思路。
+
+        * 使用iostat 查看磁盘的io情况（但是这个命令只可以看到某一个磁盘的io情况。）
+            ```
+            iostat 2 3   # 2 3 表示每2s记录一次，连续输出三次
+
+            avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+           0.03    0.01    0.03    0.06    0.00   99.88
+
+            Device:            tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
+            loop0             0.00         0.00         0.00          8          0
+            sda               0.49         5.85        10.65    1106047    2013868
+
+            avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+                    0.00    0.00    0.00    0.00    0.00  100.00
+
+            Device:            tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
+            loop0             0.00         0.00         0.00          0          0
+            sda               0.00         0.00         0.00          0          0
+
+            avg-cpu:  %user   %nice %system %iowait  %steal   %idle
+                    0.00    0.00    0.00    0.38    0.00   99.62
+
+            Device:            tps    kB_read/s    kB_wrtn/s    kB_read    kB_wrtn
+            loop0             0.00         0.00         0.00          0          0
+            sda               1.00         0.00        24.00          0         48
+            ```
+
+        * 使用dstat命令
+
+            ```
+            dstat 2 3
+            ----total-cpu-usage---- -dsk/total- -net/total- ---paging-- ---system--
+            usr sys idl wai hiq siq| read  writ| recv  send|  in   out | int   csw 
+              0   0 100   0   0   0|5973B   11k|   0     0 |   0     0 |  49    89 
+              0   0 100   0   0   0|   0     0 | 292B  590B|   0     0 |  56    98 
+              0   0 100   0   0   0|   0     0 | 346B  342B|   0     0 |  51    94 
+              0   0 100   0   0   0|   0     0 | 246B  342B|   0     0 |  49    83 
+            ```
+
+        * 使用pidstat命令
+
+            ```
+            pidstat -d  1  3   
+            # 1 3 表示 1秒输出一次，连续输出3次
+            ```
+
+            ```
+            pidstat -d -p pid  1  3  
+            # 1 3 表示 1秒输出一次，连续输出3次
+            ```
+        
 
 3. linux的一个压力测试的工具
 

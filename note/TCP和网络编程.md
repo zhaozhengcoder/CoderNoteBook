@@ -4,8 +4,6 @@
 
 * [tcp/ip原理](#tcp/ip原理)
 
-    * tcp的状态转移图
-
     * tcp在建立连接和断开连接的示意图
 
     * time_wait
@@ -15,8 +13,6 @@
     * 带外数据
 
     * tcp 接收和发送的内核的缓冲区
-
-    * rst包什么时候发送
 
 * [基本的api使用](#基本的api使用)
 
@@ -65,7 +61,81 @@
 
 ## tcp/ip原理
 
+ * tcp的状态转移图
+
+    * 三次握手
+
+        1. Server 准备接受外来连接, done by calling socket,bind,listen.服务端被动打开
+
+        2. Client 调用connect主动打开(active open), client TCP 发送"synchronize" (SYN)分节,告诉Server有一个Client将在(待建立)连接中发送的数据的初始化序号。通常SYN不携带任何数据，仅包括 an IP header, a TCP header, and possible TCP options
+        
+        3. Server 应答(acknowledge (ACK)) the client's SYN, 同时自己也发送一个SYN分节，包含Server将在同一连接中发送的数据的初始化序号。服务器发送自己的SYN,并对Client's SYN确认(ACK).
+
+        4. client ACK the server's SYN
+        
+        ![](../pic/tcp1.png)
+
+    * 四次挥手
+
+        1. 某个应用进程首先调用close(主动关闭(active close)),该端TCP发送一个FIN分节表示数据发送完毕
+
+        2. 接收端被动关闭(passive close),FIN由TCP确认，它的接收作为一个**文件结束符(end-of-file)**传递给接收端应用程序，意味着接收端再无数据可接收。
+
+        3. 一段时间后接收这个文件结束符的应用程序将调用close关闭其套接字，这导致它的TCP也发送一个SYN
+
+        4. 接收这个最终FIN的原发送端TCP（即主动关闭的那一端）确认这个FIN
+
+        ![](../pic/tcp2.png)
+
+    * time_wait
+
+        time_wait 是出现在client那一端的状态。
+
+    * close_wait
+
+
+
 * rst 包
+
+    TCP中有几个比较重要的标志位， SYN ACK FIN RST PSH URG。 rst是其中的一个，表示关闭或复位异常连接。
+    ```
+    SYN: 表示建立连接
+
+    FIN: 表示关闭连接
+
+    ACK: 表示响应
+
+    PSH: 表示有 DATA数据传输
+
+    RST: 表示连接重置
+    ```
+
+* rst包作用：
+
+    1. 发送RST包关闭连接时，不必等缓冲区的包都发出去，直接就丢弃缓冲区中的包，发送RST。
+
+    2. 接收端收到RST包后，也不必发送ACK包来确认。
+
+* 什么时候发送rst包
+
+    1. 建立连接的SYN到达某端口，但是该端口上没有正在 监听的服务。
+
+    2. TCP收到了一个根本不存在的连接上的分节。
+
+    3. 请求超时。 使用setsockopt的SO_RCVTIMEO选项设置recv的超时时间。接收数据超时时，会发送RST包。
+
+
+* 尝试手动发送rst包 
+    
+    1. 使用shutdown、close关闭套接字，发送的是FIN，不是RST。
+
+    2. 套接字关闭前，使用sleep。对运行的程序Ctrl+C，会发送FIN，不是RST。
+    
+    3. 套接字关闭前，执行return、exit(0)、exit(1)，会发送FIN、不是RST。 
+
+    **以上几种方法，都不能发送RST包。 发送RST包，需要自己伪造数据包进行发送。**
+
+* tcp抓包分析
 
     使用tcpdump去抓一个telnet向一个没有监听的端口建立tcp连接。
     ```
@@ -82,6 +152,9 @@
     IP 127.0.0.1.51254 > 127.0.0.1.9999: Flags [S], seq 1916550518, win 43690, options [mss 65495,sackOK,TS val 586810 ecr 0,nop,wscale 7], length 0
     IP 127.0.0.1.9999 > 127.0.0.1.51254: Flags [R.], seq 0, ack 1916550519, win 0, length 0
     ```
+
+    参考：
+    https://blog.csdn.net/guowenyan001/article/details/11766929
 
 ## 基本的api使用
 
@@ -224,54 +297,7 @@ http://blog.51cto.com/yaocoder/1589919
 本地的端口向服务器发送syn，企图建立tcp连接。但是对方并没有监听这个端口，于是会回复rst包。
 
 ---
-
-### 3. rst包
-
-TCP中有几个比较重要的标志位， SYN ACK FIN RST PSH URG。 rst是其中的一个，表示关闭或复位异常连接。
-
-```
-SYN: 表示建立连接
-
-FIN: 表示关闭连接
-
-ACK: 表示响应
-
-PSH: 表示有 DATA数据传输
-
-RST: 表示连接重置。
-```
-
-* rst包作用：
-
-    1. 发送RST包关闭连接时，不必等缓冲区的包都发出去，直接就丢弃缓冲区中的包，发送RST。
-
-    2. 接收端收到RST包后，也不必发送ACK包来确认。
-
-* 什么时候发送rst包
-
-    1. 建立连接的SYN到达某端口，但是该端口上没有正在 监听的服务。
-
-    2. TCP收到了一个根本不存在的连接上的分节。
-
-    3. 请求超时。 使用setsockopt的SO_RCVTIMEO选项设置recv的超时时间。接收数据超时时，会发送RST包。
-
-
-* 尝试手动发送rst包 
-
-      1. 使用shutdown、close关闭套接字，发送的是FIN，不是RST。
-
-      2. 套接字关闭前，使用sleep。对运行的程序Ctrl+C，会发送FIN，不是RST。
-
-      3. 套接字关闭前，执行return、exit(0)、exit(1)，会发送FIN、不是RST。 
-
-      **以上几种方法，都不能发送RST包。 发送RST包，需要自己伪造数据包进行发送。**
-
-参考：
-
-https://blog.csdn.net/guowenyan001/article/details/11766929
-
----
-### 惊群问题
+### 3. 惊群问题
 
 * 什么是惊群问题
 
@@ -541,7 +567,7 @@ https://blog.csdn.net/guowenyan001/article/details/11766929
     ```
 
 
-## TCP内核缓冲区大小
+## 4. TCP内核缓冲区大小
 
 ```
 $ sysctl -A | grep tcp.*mem
