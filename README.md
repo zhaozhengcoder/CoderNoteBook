@@ -45,7 +45,6 @@
 
 > [unix环境高级编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)
 
-
 > [线程同步](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5.md)
 
 ## 计算机网络
@@ -60,11 +59,27 @@
 
 ## Linux
 
-> [Linux 命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4.md)
+> [Linux 基本命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4.md)
+
+> [linux gcc命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_gcc.md)
+
+>[linux tcpdump命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_tcpdump.md)
+
+>[linux 关于性能分析的命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_linux%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96.md)
+
+>[bash&shell 编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/bash%26shell%E7%BC%96%E7%A8%8B.md)
+
+>[linux 关于配置的命令]()
 
 ## 编码实践/设计模式
 
+>[《重构》的笔记](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E3%80%8A%E9%87%8D%E6%9E%84%E3%80%8B%E7%9A%84%E7%AC%94%E8%AE%B0.md)
+
 ## 数据结构/算法
+
+>[常见的算法题](https://github.com/zhaozhengcoder/Algorithm)
+
+>[关于系统设计类的问题](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98.md)
 
 ## 机器学习/深度学习
 
@@ -72,13 +87,13 @@
 
 > [技术类](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/技术类的书单.md)
 
-> 非技术类
+> 非技术类()
 
 ## 工具
 
 > [window下的ubuntu子系统](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E5%B7%A5%E5%85%B7%E6%A0%88.md)
 
->[vscode插件]()
+>[vscode插件](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/vscode%E5%86%99c%2B%2B%E6%8F%92%E4%BB%B6%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE.md)
 
 ## 关注的人 / 大牛 
 
