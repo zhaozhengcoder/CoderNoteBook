@@ -1,6 +1,6 @@
 # 程序员的自我修养
 
-这个repo的大致的想法是，把自己看到的东西或者觉得不错的一些零散碎片的东西，整理上来。
+这个repo的大致的想法是，把自己看到的,学到的东西 或者时觉得不错的一些零散碎片的东西，整理上来。
 
 
 -----
@@ -31,15 +31,15 @@
 
 > [编译，链接，装载](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%BC%96%E8%AF%91%2C%E9%93%BE%E6%8E%A5%E4%B8%8E%E8%A3%85%E8%BD%BD.md)
 
->[c++的new和delete](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84new%E5%92%8Cdelete.md)
+> [c++的new和delete](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84new%E5%92%8Cdelete.md)
 
->[c++的多态和虚函数](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84%E5%A4%9A%E6%80%81%E5%92%8C%E8%99%9A%E5%87%BD%E6%95%B0.md)
+> [c++的多态和虚函数](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84%E5%A4%9A%E6%80%81%E5%92%8C%E8%99%9A%E5%87%BD%E6%95%B0.md)
 
->[c++的前置声明](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84%E5%89%8D%E7%BD%AE%E5%A3%B0%E6%98%8E.md)
+> [c++的前置声明](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84%E5%89%8D%E7%BD%AE%E5%A3%B0%E6%98%8E.md)
 
->[c++面向对象](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.md)
+> [c++面向对象](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.md)
 
->[c++类型转换cast](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.md)
+> [c++类型转换cast](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.md)
 
 ## 操作系统
 
@@ -55,6 +55,8 @@
 
 >[数据库](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93.md)
 
+>[数据库索引](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93-%E7%B4%A2%E5%BC%95.md)
+
 ## HTTP
 
 ## Linux
@@ -69,7 +71,9 @@
 
 >[bash&shell 编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/bash%26shell%E7%BC%96%E7%A8%8B.md)
 
->[linux 关于配置的命令]()
+>[linux 关于配置的命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E9%85%8D%E7%BD%AE.md)
+
+>[docker]()
 
 ## 编码实践/设计模式
 
@@ -143,6 +147,12 @@
 ## 编码风格
 
 > [Google-style](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
+
+
+## 程序员身体保养
+
+>[颈椎]()
+
 
 ## 后记
 
