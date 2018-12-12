@@ -74,6 +74,21 @@
         perf report
         ```
 
+    * sar 命令
+
+        sar 命令 观察网卡的情况
+        ```
+        sar -n DEV 1  
+        #-n DEV 表示显示网络收发的报告，每隔1s输出一次
+
+        18时08分01秒     IFACE   rxpck/s   txpck/s    rxkB/s    txkB/s   rxcmp/s   txcmp/s  rxmcst/s   %ifutil
+        18时08分02秒        lo      0.00      0.00      0.00      0.00      0.00      0.00      0.00      0.00
+        18时08分02秒      eno1    144.00      2.00      9.08      0.30      0.00      0.00      0.00      0.07
+
+        IFACE 表示 网卡
+        rxpck/s 和 txpck/s 表示每秒收发的包
+        rxkB/s  和 txkB/s  表示每秒收发的字节
+        ```
 
     * 观察短生命周期的进程
 
@@ -151,18 +166,45 @@
 
 3. linux的一个压力测试的工具
 
-    stress命令
+    * stress命令
 
-    stress可以对某个和cpu模拟出计算密集型的任务和io密集的任务。
+        stress可以对某个和cpu模拟出计算密集型的任务和io密集的任务。
 
-    sysbench 命令
+    * sysbench 命令
 
-    可以模拟出线程的切换
-    ```
-    sysbench --num-threads=30 --max-time=30000 --test=threads run
-    ```
+        可以模拟出线程的切换
+        ```
+        sysbench --num-threads=30 --max-time=30000 --test=threads run
+        ```
 
-    apache ab命令
-    ```
-     ab -c 10 -n 100000 http://192.168.3.110/cal.php?verbose=1
-    ```
+    * apache ab命令
+        ```
+        ab -c 10 -n 100000 http://192.168.3.110/cal.php?verbose=1
+        ```
+
+    * hping3 命令
+        ```
+        hping3 -S -p 8080 -i u100 192.168.3.110
+
+        # -S 表示tcp协议的syn ，只发送syn包
+        # -i 表示100毫秒发送一个
+        # -p 端口
+        # 这是一个syn攻击
+        ```
+
+4. 观察工具
+
+    * watch 命令
+        ```
+        watch -d cat /proc/softirqs
+        # cat /proc/softirqs 是查看系统的软中断次数，但是这个是系统开机到现在的次数，如果我查看这段事件的变化的话，watch命令就很方便了。
+
+        watch -d netstat -atunlp
+        ```
+
+    * time 命令 
+
+        ```
+        time a.out 
+        # 一个可执行文件的执行时间
+        ```
