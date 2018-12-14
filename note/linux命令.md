@@ -332,6 +332,17 @@ RES  表示的是：占用的物理内存
 SHR  表示的是：占用的是共享内存
 ```
 
+```
+关于cpu利用率中一栏的内容：
+1.3% us — 用户空间占用CPU的百分比。
+1.0% sy — 内核空间占用CPU的百分比。
+0.0% ni — 改变过优先级的进程占用CPU的百分比
+97.3% id — 空闲CPU百分比
+0.0%  wa — IO等待占用CPU的百分比（wait io）
+0.3%  hi — 硬中断（Hardware IRQ）占用CPU的百分比
+0.0%  si — 软中断（Software Interrupts）占用CPU的百分比
+```
+
 ### mpstat
 mpstat是Multiprocessor Statistics的缩写，是实时系统监控工具。
 ```
