@@ -213,4 +213,10 @@
 
 ### 分析cpu的瓶颈
 
-![tu](../pic/linux性能分析1)
+![tu](../pic/linux性能分析1.PNG)
+
+![tu](../pic/linux性能分析2.JPG)
+
+![tu](../pic/linux性能分析3.JPG)
+
+![tu](../pic/linux性能分析4.JPG)
