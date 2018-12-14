@@ -215,11 +215,11 @@
 
 ![tu](../pic/linux性能分析1.PNG)
 
-![tu](../pic/linux性能分析2.jpg)
+![tu](../pic/Linux性能分析2.jpg)
 
-![tu](../pic/linux性能分析3.jpg)
+![tu](../pic/Linux性能分析3.jpg)
 
-![tu](../pic/linux性能分析4.jpg)
+![tu](../pic/Linux性能分析4.jpg)
 
 
 首先，平均负载的案例。我们先用 uptime， 查看了系统的平均负载；而在平均负载升高后，又用 mpstat 和 pidstat ，分别观察了每个 CPU 和每个进程 CPU 的使用情况，进而找出了导致平均负载升高的进程，也就是我们的压测工具 stress。
