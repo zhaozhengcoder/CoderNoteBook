@@ -154,6 +154,13 @@
 
 ### make
 
+- [make](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_make%E6%95%99%E7%A8%8B.md)
+
+
+### cmake
+
+- [cmake]()
+
 ### GCC/G++
 
 常用的参数
