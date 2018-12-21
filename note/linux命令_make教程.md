@@ -61,7 +61,7 @@
         src = $(wildcard *.c ./sub/*.c)
         ```
 
-## 常用例子
+## 简单的例子
 
 来自于muduo的make文件
 ```

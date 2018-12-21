@@ -21,7 +21,6 @@
 * [关注的人 / Blog](#关注的人/Blog)
 * [源码 / 开源项目](#源码/开源项目)
 * [后记 / 参考文献](#后记)
-* [编码风格](#编码风格)
 
 ---
 
@@ -78,13 +77,19 @@
 
 >[git教程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/git%E6%95%99%E7%A8%8B.md)
 
->[make构建教程]()
+>[make构建教程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_make%E6%95%99%E7%A8%8B.md)
 
 >[docker]()
 
 ## 编码实践/设计模式
 
 >[《重构》的笔记](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E3%80%8A%E9%87%8D%E6%9E%84%E3%80%8B%E7%9A%84%E7%AC%94%E8%AE%B0.md)
+
+>[设计模型的几个原则]()
+
+>[具体的设计模式]()
+
+> [Google-style](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
 ## 数据结构/算法
 
@@ -152,10 +157,6 @@
 > [小的组件和小轮子](https://github.com/zhaozhengcoder/rebuild-the-wheel)
 
 > [muduo](https://github.com/zhaozhengcoder/muduo)
-
-## 编码风格
-
-> [Google-style](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
 
 ## 程序员身体保养
