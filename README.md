@@ -73,6 +73,13 @@
 
 >[linux 关于配置的命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E9%85%8D%E7%BD%AE.md)
 
+
+## 工具
+
+>[git教程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/git%E6%95%99%E7%A8%8B.md)
+
+>[make构建教程]()
+
 >[docker]()
 
 ## 编码实践/设计模式
@@ -89,11 +96,13 @@
 
 ## 书单
 
-> [技术类](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/技术类的书单.md)
+> [我推荐的]()
 
-> 非技术类()
+> [江湖上面有人整理出来的技术类书单](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/技术类的书单.md)
 
-## 工具
+> [非技术类]()
+
+## 开发工具
 
 > [window下的ubuntu子系统](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E5%B7%A5%E5%85%B7%E6%A0%88.md)
 
