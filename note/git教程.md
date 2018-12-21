@@ -80,6 +80,14 @@ git status
 git reset --hard commit_id
 ```
 
+## 查看
+```
+git status
+git status -s
+git log
+```
+
+
 ## 分支管理
 
 查看分支：
@@ -105,6 +113,18 @@ git checkout -b dev
 ```
 
 ## .gitignore
+
+首先，在你的工作区新建一个名称为.gitignore的文件。
+**然后，把要忽略的文件名填进去，Git就会自动忽略这些文件。**
+
+不需要从头写.gitignore文件，GitHub已经为我们准备了各种配置文件，只需要组合一下就可以使用了。
+所有配置文件可以直接在线浏览：https://github.com/github/gitignore
+
+比如说，不想把a.out文件加入git,那么在.gitignore的文件里面的内容是：
+```
+*.o
+*.out
+```
 
 ## 参考
 
