@@ -75,8 +75,11 @@ git status
 无文件要提交，干净的工作区
 ```
 
+
+撒销一个合并
 ```
-# 把版本库里面对应的版本退回到工作区
+# 如果你觉得你合并后的状态是一团乱麻，想把当前的修改都放弃，你可以用下面的命令回到合并之前的状态
+git reset --hard HEAD
 git reset --hard commit_id
 ```
 
@@ -85,6 +88,7 @@ git reset --hard commit_id
 git status
 git status -s
 git log
+git log --stat
 ```
 
 
@@ -112,6 +116,25 @@ git checkout dev
 git checkout -b dev
 ```
 
+合并分支：
+
+```
+# 如果要在master分支合并dev分支，那么在切换到master的分支之后，就可以合并dev分支
+git merge dev
+```
+
+删除分支：
+```
+git branch -d (branchname)
+```
+
+## git diff
+
+用git diff来找你当前工作目录和上次提交与本地索引间的差异。
+```
+git diff
+```
+
 ## .gitignore
 
 首先，在你的工作区新建一个名称为.gitignore的文件。
@@ -126,14 +149,22 @@ git checkout -b dev
 *.out
 ```
 
+## git的工具
+```
+# 很漂亮的图形的显示项目的历史
+gitk
+```
+
 ## 参考
 
-https://gist.github.com/285571052/72fe4e85290d170b9de4634b6ad8c082
+- [廖雪峰教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 
-https://git-scm.com/book/zh/v2
+- [cyc_git教程](https://github.com/CyC2018/CS-Notes/blob/master/docs/notes/Git.md)
 
-https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
+- [runoob教程](http://www.runoob.com/git/git-workspace-index-repo.html)
 
-https://github.com/CyC2018/CS-Notes/blob/master/docs/notes/Git.md
+- [具体的每一个git命令的使用](https://www.yiibai.com/git/git_diff.html)
 
-http://www.runoob.com/git/git-workspace-index-repo.html
+  https://gist.github.com/285571052/72fe4e85290d170b9de4634b6ad8c082
+
+  https://git-scm.com/book/zh/v2
