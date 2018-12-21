@@ -85,9 +85,9 @@
 
 >[《重构》的笔记](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E3%80%8A%E9%87%8D%E6%9E%84%E3%80%8B%E7%9A%84%E7%AC%94%E8%AE%B0.md)
 
->[设计模型的几个原则]()
+>[设计模型的几个原则](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99.md)
 
->[具体的设计模式]()
+>[具体的设计模式](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
 
 > [Google-style](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
@@ -101,11 +101,12 @@
 
 ## 书单
 
-> [我推荐的]()
+> [我整理的技术类的书单]()
+
+> [我整理的技术类的书单]()
 
 > [江湖上面有人整理出来的技术类书单](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/技术类的书单.md)
 
-> [非技术类]()
 
 ## 开发工具
 
@@ -154,14 +155,14 @@
 
 ## 源码/开源项目
 
-> [小的组件和小轮子](https://github.com/zhaozhengcoder/rebuild-the-wheel)
+> [练手的小的组件和小轮子](https://github.com/zhaozhengcoder/rebuild-the-wheel)
 
 > [muduo](https://github.com/zhaozhengcoder/muduo)
 
 
 ## 程序员身体保养
 
->[颈椎]()
+>[颈椎保护指南]()
 
 
 ## 后记
