@@ -44,7 +44,7 @@ Git 里面又三个概念：分别是工作区，暂存区，和版本库。
 
 * 当执行 "git checkout ." 或者 "git checkout -- \<file>" 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区的改动。
 
-* 当执行 "git checkout HEAD 或 commit_id .  " 或者 "git checkout HEAD \<file>" 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。
+* 当执行 "git checkout HEAD . 或 git checkoout commit_id .  " 或者 "git checkout HEAD \<file>" 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。
 
 ---
 
