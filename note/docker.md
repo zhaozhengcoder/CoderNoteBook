@@ -2,16 +2,53 @@
 
 ## 目录
 
+---
+## docker简介
 
-## docker的优点&安装
+### docker简介和优点
+
+### docker的几个概念
+
+* 镜像（image）
+
+* 容器（container）
+
+    镜像（Image）和容器（Container）的关系，**就像是面向对象程序设计中的 类 和 实例 一样，镜像是静态的定义，容器是镜像运行时的实体。**容器可以被创建、启动、停止、删除、暂停等。
+
+
+    前面讲过镜像使用的是分层存储，容器也是如此。**每一个容器运行时，是以镜像为基础层，在其上创建一个当前容器的存储层，我们可以称这个为容器运行时读写而准备的存储层为容器存储层。**
+
+* 仓库（repository）
+
+---
 
 ## 基本使用
+
+### 1. 获取镜像
+
+Docker Hub 上有大量的高质量的镜像可以用，这里我们就说一下怎么获取这些镜像。
+
+从 Docker 镜像仓库获取镜像的命令是 docker pull。其命令格式为：
+```
+docker pull [选项] [Docker Registry 地址[:端口号]/]仓库名[:标签]
+```
+
+具体的选项可以通过 docker pull --help 命令看到，这里我们说一下镜像名称的格式。
+
+* Docker 镜像仓库地址：地址的格式一般是 <域名/IP>[:端口号]。默认地址是 Docker Hub。
+* 仓库名：如之前所说，这里的仓库名是两段式名称，即 <用户名>/<软件名>。对于 Docker Hub，如果不给出用户名，则默认为 library，也就是官方镜像。
+
+---
+
+### 2. 运行
 
 * 查看
 ```
 docker image ls
 
 docker ps
+
+docker ps -a
 
 docker stats
 ```
@@ -75,8 +112,6 @@ docker exec -it my_nginx bash
 
 ## 参考
 
-1. https://yeasy.gitbooks.io/docker_practice/image/pull.html
+- [docker 入门到实践](https://yeasy.gitbooks.io/docker_practice/image/pull.html)
 
-2. https://www.jianshu.com/p/3384e342502b
-
-3. https://www.yuque.com/grasilife/docker
+- [使用Docker快速搭建Nginx+PHP-FPM环境](https://www.jianshu.com/p/3384e342502b)

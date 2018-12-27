@@ -18,6 +18,8 @@
 
 * [Linux 进阶](#linux进阶)
 
+    * [htop/top](#htop/top)
+
     * [strace](#strace)
 
     * [vmstat](#vmstat)
@@ -233,7 +235,7 @@ ulimit -c 1024        # 修改成1024，这样就可以产生core file了
 
 ## Linux 进阶
 
-### htop/top命令
+### htop/top
 
 top的一部分输出是：
 ```
@@ -243,8 +245,14 @@ top的一部分输出是：
 ```
 
 ```
-VIRT 的定义是：占用的虚拟内存的大小（占用的物理内存+swap空间）
+VIRT 的定义是：
+    占用的虚拟内存的大小（占用的物理内存+swap空间）
+    virt是virtual memory usage ，virt是virtual的前四个字母的缩写吧。
+    virt表示的是申请到的内存，而不是使用的内存。（假如进程申请100m的内存，但实际只使用了10m，那么它会增长100m，而不是实际的使用量）
+
 RES  表示的是：占用的物理内存
+    进程常驻内存的大小，实际使用的物理内存
+
 SHR  表示的是：占用的是共享内存
 ```
 
@@ -429,9 +437,11 @@ sudo perf top -g -p pid
 
 ## 参考资料
 
->[GDB 教程](https://wizardforcel.gitbooks.io/100-gdb-tips/set-follow-fork-mode-child.html)
+- [GDB 教程](https://wizardforcel.gitbooks.io/100-gdb-tips/set-follow-fork-mode-child.html)
 
+- [linux tool quick tutorial](https://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html)
 
->[linux tool quick tutorial](https://linuxtools-rst.readthedocs.io/zh_CN/latest/base/index.html)
+- [make教程](http://www.ruanyifeng.com/blog/2015/02/make.html)
 
->[make教程](http://www.ruanyifeng.com/blog/2015/02/make.html)
+- [一个关于内存分配的教程](https://blog.holbertonschool.com/category/hack-the-virtual-memory/)
+
