@@ -168,3 +168,55 @@ gitk
   https://gist.github.com/285571052/72fe4e85290d170b9de4634b6ad8c082
 
   https://git-scm.com/book/zh/v2
+
+- [关于远程仓库](https://www.jianshu.com/p/9685a56bdf7a)
+
+更新一部分：
+
+![tu](../pic/git_4.png)
+
+
+![tu](../pic/git_5.png)
+
+
+### 分支管理
+
+merge表示的合并某一个分支到当前分支，**但是如果有冲突的话，需要收到解决冲突。**
+
+|命令|内容|
+|:---:|:---:|
+|git merge dev  | #在当前分支和并dev分支|
+|git checkout -b [branch-name]| 创建分支并且切换到这个分支|
+|git branch -d [branch-name]|删除分支|
+
+
+
+### reset命令
+
+reset 一般指的是将版本库的内容撤回到暂存区。
+但是，也可以加上--hard 之后，将版本库的内容直接撤回到workspace里面。
+
+
+![tu](../pic/git_6.JPG)
+
+| 命令 |  内容  |
+|:---:|:---:|
+|git reset -- test.txt    | 使用当前版本仓库里面的内容覆盖暂存区，用来覆盖最git add的内容| 
+|git reset —hard [commit]	| 暂存区、工作区的内容都会被修改到与提交点完全一致的状态 |
+|git reset --hard HEAD	|让工作区回到上次提交时的状态|
+|git reset —soft [commit]|	只改变提交点，暂存区和工作目录的内容都不改变|
+
+
+## checkout
+
+
+## diff 
+
+| 命令 |  内容  |
+|:---:|:---:|
+|git diff | 显示暂存区和工作区的差异|
+|git diff [file-name]|显示某一个文件，暂存区和工作区的差异|
+|git diff HEAD|显示工作区与当前分支最新commit之间的差异|
+
+
+## fetch 
