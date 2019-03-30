@@ -44,6 +44,8 @@
 
 > [unix环境高级编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)
 
+> [文件系统-todo]
+
 > [线程同步](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%BA%BF%E7%A8%8B%E5%90%8C%E6%AD%A5.md)
 
 ## 计算机网络
@@ -79,7 +81,9 @@
 
 >[make构建教程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_make%E6%95%99%E7%A8%8B.md)
 
->[docker]()
+>[svn教程](https://www.jianshu.com/p/d6abd4a986a6)
+
+>[docker-todo]
 
 ## 编码实践/设计模式
 
@@ -113,6 +117,8 @@
 > [window下的ubuntu子系统](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E5%B7%A5%E5%85%B7%E6%A0%88.md)
 
 >[vscode插件](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/vscode%E5%86%99c%2B%2B%E6%8F%92%E4%BB%B6%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE.md)
+
+>[vim插件](https://www.jianshu.com/p/c527d9c2717a)
 
 ## 关注的人 / 大牛 
 

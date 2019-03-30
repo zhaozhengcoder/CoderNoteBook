@@ -97,3 +97,8 @@ pub: $(SRC)/pub.cc codec.cc pubsub.cc
 
 .PHONY: all clean
 ```
+
+* 其他
+    >[makefile自动推导](https://www.jianshu.com/p/27070bbcba4d)
+
+    
