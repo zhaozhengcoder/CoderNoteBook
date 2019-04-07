@@ -30,6 +30,10 @@
 
     * [perf](#perf)
 
+* [Linux 常用的命令](#常用的Linux命令)
+
+    - [alias](./linux命令_常用.md)
+
 
 * [Linux 性能优化](#linux性能优化)
 
