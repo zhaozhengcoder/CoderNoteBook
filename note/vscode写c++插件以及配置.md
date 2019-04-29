@@ -46,6 +46,10 @@
 
 ---
 
+* Setting Sync 
+
+    这个插件可以帮助在不同的机器同步vscode的配置
+
 * Project Manager
 
     用来管理工程，可以方便的实现工程切换。
@@ -55,6 +59,16 @@
     用来标记代码，可以全局跳转，非常方便。
 
 ---
+
+* vscode 隐藏文件/文件夹
+    ```
+        "files.exclude": 
+        {
+            "**/.git": true,
+            "**/.svn": true,
+            "**/*.pyc": true
+        }
+    ```
 
 * 我的vscode的setting.json的配置 : 
     ```
@@ -67,6 +81,40 @@
         "clang.cxxflags": [
             "-IC:\\Users\\wwwa8\\Documents\\GitHub\\muduo\\build\\release-install\\include"
         ]
+    }
+    ```
+
+    ```
+    {
+        "editor.fontSize": 15,
+        "extensions.ignoreRecommendations": true,
+        "http.proxy": "http://web-proxy.tencent.com:8080",
+        "files.encoding": "gb2312",
+        "search.location": "panel",
+        "php.suggest.basic": false,
+        "php.executablePath": "C:\\Program Files\\php\\php.exe",
+        "php.validate.executablePath": "C:\\Program Files\\php\\php.exe",
+        "php-cs-fixer.executablePath": "C:\\Program Files\\php\\php-cs-fixer.phar",
+        "editor.formatOnSave": true,
+        
+        // tab = 4 空格，以及显示tab 
+        "editor.detectIndentation": false,
+        "editor.tabSize": 4,
+        "editor.renderControlCharacters": true,
+        "editor.renderWhitespace": "all",
+        "editor.fontFamily": "Consolas, 'Menlo', Menlo",
+        "editor.formatOnPaste": false,
+        
+        // "workbench.activityBar.visible": false,
+        "workbench.iconTheme": "material-icon-theme",
+        "workbench.colorCustomizations": {},
+        "materialTheme.cache.workbench.settings": {
+            "themeColours": "Darker",
+            "accentPrevious": "Acid Lime"
+        },
+        "editor.lineHeight": 24,
+        "sync.gist": "5de3d3f39269386af3048d7d502add0e",
+        "workbench.colorTheme": "Monokai Seti",
     }
     ```
 
