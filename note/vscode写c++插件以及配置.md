@@ -1,6 +1,26 @@
 # vscode 插件
 
-使用vscode开发c/c++,推荐的一些插件。
+## vscode 的快捷键
+
+* ctrl + g  跳转到对应的行号
+
+* F1 启动一些插件或者配置
+
+* ctrl + p 打开某个文件
+
+* ctrl + alt + k  打bookmark的mark
+
+* ctrl + k + ctrl + 1 折叠所有的代码 
+
+* ctrl + t 查找符号
+
+* ctrl + ~ 控制台终端显示与隐藏
+
+* alt + leftarrow
+
+按下F1、输入shortcuts 查看所有快捷鍵。
+
+## 使用vscode开发c/c++,推荐的一些插件。
 
 * c/c++
 
