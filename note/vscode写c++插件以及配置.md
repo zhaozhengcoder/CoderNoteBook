@@ -22,6 +22,8 @@
 
         然后，将 xxx\glo656wb\bin 加入环境变量。
 
+    3. 打开gnu global 插件 ，然后输入对应的命令，去构建tags文件。
+
 * YouCompleteMe , vscode-youcompleteme
 
     自动补全代码的插件
@@ -57,6 +59,12 @@
 * Bookmarks
 
     用来标记代码，可以全局跳转，非常方便。
+
+    安装插件之后，ctrl + alt + k 打书签
+
+    ctrl + j ，k 在不同的书签之间跳转；
+
+    按F1，输入bookmark list，查看所有书签，然后飞快的跳转
 
 ---
 
