@@ -98,6 +98,25 @@
     ```
     grep -rn "iostream"
     ```
+
+    在服务器上面远程的看日志
+    ```
+    # 查看xxx.log文件里面的ERROR
+    grep ERROR xxx.log 
+
+    # 查看这个目录下面所有文件的error
+    grep ERROR *
+    
+    # 查看这个目录下面所有文件的error，但是排除掉 tcp error
+    grep ERROR * | grep -iv "tcp_error"
+    ```
+
+* du 查看占用磁盘的大小
+
+    ```
+    du -h --max-depth=1
+    ```
+
 * sz / rz 命令
 
     sz 从服务器上面下载一个文件

@@ -30,7 +30,9 @@ http://www.cnblogs.com/miloyip/archive/2010/09/17/behind_cplusplus.html
 
 ## 语法
 
-### extern关键字
+在这个地方，我罗列的一些内容是对我而言，比较容易忘记的，或者是掉过一些坑的东西。各个点之间也没有什么逻辑关系。
+
+### 理解extern关键字
 
 思考一个问题，如何在main.cpp文件里面调用 fun.c 文件里面的func 函数？
 换一句话，就是如果在c++的代码里面调用c的代码。
@@ -87,7 +89,7 @@ int add(int x, int y);
 #endif
 ```
 
-### 初始化列表初始化
+### 使用初始化列表初始化
 
 为什么要使用初始化列表初始化？
 
