@@ -141,6 +141,11 @@
     continue  #跳到下一个断点
 
     bt        #查看函数栈
+
+    watch  var                # 查看某个变量,一个变量值发生变化时，程序会中断
+    call   test_func(val)     # test_func 是用户写的函数，gdb手动去执行这个程序
+    p/x    var                # p/x 把var变量以十六进制表示
+    info   local              # 显示当前函数中的局部变量信息
     ```
 * attach
     ```
