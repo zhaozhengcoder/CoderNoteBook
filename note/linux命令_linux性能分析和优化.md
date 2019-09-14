@@ -235,3 +235,37 @@
 >第五个，不可中断进程和僵尸进程的案例。我们先用 top 观察到了 iowait 升高的问题，并发现了大量的不可中断进程和僵尸进程；接着我们用 dstat 发现是这是由磁盘读导致的，于是又通过 pidstat 找出了相关的进程。但我们用 strace 查看进程系统调用却失败了，最终还是用 perf 分析进程调用链，才发现根源在于磁盘直接 I/O 。
 
 >最后一个，软中断的案例。我们通过 top 观察到，系统的软中断 CPU 使用率升高；接着查看 /proc/softirqs， 找到了几种变化速率较快的软中断；然后通过 sar 命令，发现是网络小包的问题，最后再用 tcpdump ，找出网络帧的类型和来源，确定是一个 SYN FLOOD 攻击导致的。
+
+
+
+
+### 小结
+
+* 关于cpu：
+
+    相关的命令：uptime， top/htop， mpstat，perf
+
+* 关于内存：
+
+    相关的命令：vmstat，free
+
+* 关于磁盘：
+
+    相关的命令：iostat，dstat，du -h
+
+* 关于网络：
+
+    相关的命令：sar
+
+* 定位单个进程的信息：
+
+    相关的命令：pidstat
+
+---
+其他：
+
+[linux性能分析2](
+https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_linux%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%962.md)
+
+[linux性能分析3](
+https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_linux%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%963.md)
