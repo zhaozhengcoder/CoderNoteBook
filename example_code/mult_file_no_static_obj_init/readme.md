@@ -2,5 +2,5 @@
 
 对于同样的代码，执行make plan1，执行make plan2 编译出来的代码，执行的结果会有很大不同。
 
-fix_bug之后的版本在：
-./fix_bug 目录下面
+修改之后的代码在：
+./fix_bug_demo 目录下面
