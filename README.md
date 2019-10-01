@@ -28,6 +28,8 @@
 
 > [c++ 语法](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E5%AD%A6%E4%B9%A0.md)
 
+> [c++ 多个文件链接的时候no_static多个文件链接变量初始化顺序问题]()
+
 > [编译，链接，装载](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%BC%96%E8%AF%91%2C%E9%93%BE%E6%8E%A5%E4%B8%8E%E8%A3%85%E8%BD%BD.md)
 
 > [c++的new和delete](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84new%E5%92%8Cdelete.md)
