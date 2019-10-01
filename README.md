@@ -28,7 +28,7 @@
 
 > [c++ 语法](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E5%AD%A6%E4%B9%A0.md)
 
-> [c++ 多个文件链接的时候no_static多个文件链接变量初始化顺序问题]()
+> [c++ 多个文件链接的时候no_static多个文件链接变量初始化顺序问题](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F%E9%97%AE%E9%A2%98.md)
 
 > [编译，链接，装载](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%BC%96%E8%AF%91%2C%E9%93%BE%E6%8E%A5%E4%B8%8E%E8%A3%85%E8%BD%BD.md)
 
