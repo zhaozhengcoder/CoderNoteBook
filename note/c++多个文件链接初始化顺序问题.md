@@ -31,4 +31,4 @@ TEST1 &get_test1_obj()
 # 那么c++的机制可以保证访问函数的时候，static变量一定会函数被调用的时候初始化
 ```
 
-show_code_here -> 
+show_code_here -> https://github.com/zhaozhengcoder/CoderNoteBook/tree/master/example_code/mult_file_no_static_obj_init/fix_bug_demo
