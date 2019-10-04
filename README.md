@@ -44,6 +44,14 @@
 
 > [c++类型转换cast](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.md)
 
+> [移动构造函数，右值引用，move-todo]
+
+> [c++我用到的一些回调函数实现的方式-todo]
+
+> [STL-todo](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2BSTL.md)
+
+> [没想好名字的一些东西]()
+
 ## 操作系统
 
 > [unix环境高级编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)

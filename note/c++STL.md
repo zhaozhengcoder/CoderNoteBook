@@ -3,6 +3,7 @@
 ## 目录
 
 * [迭代器失效](#迭代器失效)
+* [emplace_back](#emplace_back)
 
 
 
@@ -40,7 +41,7 @@
         {
             if (*iter != delete_ele)
             {
-                iter = vi.erase(iter);
+                iter = vi.erase(iter);   // 删除元素之后，iter指向被删除的元素的下一个了，不需要再iter++了
             }
             else
             {
@@ -58,3 +59,7 @@
         return 0;
     }
     ```
+
+## emplace_back 
+
+emplace_back和push_back的区别，为什么要使用emplace_back？
