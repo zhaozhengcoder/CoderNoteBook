@@ -40,7 +40,7 @@
 
 * 第三种
 
-    在函数中定义static
+    在函数中定义static，这样可以避免反复初始化一个变量。
     ```
     struct LARGE_STRUCT
     {
@@ -62,6 +62,38 @@
     static int val;  // 定义一个全局static变量
     ```
 
-    // todo - static 在进程空间的位置
-    // 结合一下这个 ： https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F%E9%97%AE%E9%A2%98.md
+* 第五种
+
+    在程序中定义全部变量的时候
+    file1.cpp
+    ```
+    XXX obj1;   // 定义一个全局变量
+    ```
+
+    file2.cpp
+    ```
+    cout << obj1.val << endl;   // 在另外一个文件访问
+    ```
+
+    我一般会写成这样：
+    file1.cpp
+    ```
+    XXX& get_obj()
+    {
+        static XXX obj1;   // 定义一个全局变量
+        return ob1;
+    }
+    ```
+
+    file2.cpp
+    ```
+    cout << get_obj().val <<endl;
+    ```
+    
+    这样除了封装了一个接口之外，更重要的好处是可以避免 由于多个（相互依赖的）全局变量初始化顺序不同而导致的初始化问题。（https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E5%A4%9A%E4%B8%AA%E6%96%87%E4%BB%B6%E9%93%BE%E6%8E%A5%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F%E9%97%AE%E9%A2%98.md）
+
+* 关于static的其他
+    一个进程中，static和全局变量会被放在程序的数据段和bss段里面。（取决于是否初始化，没有初始化的放在bss段里面）。也就是说，在程序进入mian之前，这样已经被分配好的了。
+
+    可以参考：https://www.jianshu.com/p/f9760cb3cea2
 
