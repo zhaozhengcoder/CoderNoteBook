@@ -8,18 +8,19 @@
 ## 目录
 
 * [C/C++](#C/C++)
+* [Linux](#Linux)
+* [组件](#组件)
 * [操作系统](#操作系统)
 * [计算机网络](#计算机网络)
 * [数据库](#数据库)
 * [HTTP](#HTTP)
-* [Linux](#Linux)
 * [编码实践 / 设计模式](#编码实践/设计模式)
 * [数据结构 / 算法](#数据结构/算法)
 * [机器 / 深度学习](#机器学习/深度学习)
 * [书单 / 读书](#书单)
 * [工具](#工具)
-* [关注的人 / Blog](#关注的人/Blog)
 * [源码 / 开源项目](#源码/开源项目)
+* [关注的人 / Blog](#关注的人/Blog)
 * [后记 / 参考文献](#后记)
 
 ---
@@ -50,7 +51,29 @@
 
 > [STL-todo](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2BSTL.md)
 
-> [没想好名字的一些东西]()
+> [没想好名字的一些东西](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E5%85%B6%E4%BB%96.md)
+
+## Linux
+
+> [Linux 基本命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4.md)
+
+> [linux gcc命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_gcc.md)
+
+>[linux tcpdump命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_tcpdump.md)
+
+>[linux 关于性能分析的命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_linux%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96.md)
+
+>[bash&shell 编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/bash%26shell%E7%BC%96%E7%A8%8B.md)
+
+>[linux 关于配置的命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E9%85%8D%E7%BD%AE.md)
+
+## 组件
+
+> [redis-todo]
+
+> [kafka-todo]
+
+> [nginx-todo]
 
 ## 操作系统
 
@@ -71,20 +94,6 @@
 >[数据库索引](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E6%95%B0%E6%8D%AE%E5%BA%93-%E7%B4%A2%E5%BC%95.md)
 
 ## HTTP
-
-## Linux
-
-> [Linux 基本命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4.md)
-
-> [linux gcc命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_gcc.md)
-
->[linux tcpdump命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_tcpdump.md)
-
->[linux 关于性能分析的命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_linux%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E5%92%8C%E4%BC%98%E5%8C%96.md)
-
->[bash&shell 编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/bash%26shell%E7%BC%96%E7%A8%8B.md)
-
->[linux 关于配置的命令](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E9%85%8D%E7%BD%AE.md)
 
 
 ## 工具
@@ -136,9 +145,25 @@
 
 > [C++大牛的博客](https://gist.github.com/wen-long/d4d2eb183f1a3d6834c3)
 
+## 源码/开源项目
+
+> [练手的小的组件和小轮子](https://github.com/zhaozhengcoder/rebuild-the-wheel)
+
+> [muduo](https://github.com/zhaozhengcoder/muduo)
+
+> [libco]()
+
+> [brpc]()
+
+> [leveldb]()
+
+## 程序员身体保养
+
+>[颈椎保护指南]()
+
 ### 博客BLOG 
 
-这些是我整理的一些，感觉是一些有意思的人。
+这些是我关注的一些有意思的BLOG.
 
 * [张洋的blog](http://blog.codinglabs.org/pages/about-me.html)
 
@@ -169,19 +194,6 @@
 * 云风 ：https://blog.codingnow.com/ 
 
 * milo ： https://www.cnblogs.com/miloyip/
-
-
-## 源码/开源项目
-
-> [练手的小的组件和小轮子](https://github.com/zhaozhengcoder/rebuild-the-wheel)
-
-> [muduo](https://github.com/zhaozhengcoder/muduo)
-
-
-## 程序员身体保养
-
->[颈椎保护指南]()
-
 
 ## 后记
 
