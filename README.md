@@ -71,7 +71,9 @@
 
 ## 组件
 
-> [redis-todo]
+### redis
+
+[redis-cluster搭建](./note/redis_cluster.md)
 
 > [kafka-todo]
 
