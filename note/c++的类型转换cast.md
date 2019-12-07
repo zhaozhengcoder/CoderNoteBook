@@ -86,3 +86,5 @@
 
 
 * dynamic_cast
+
+    dynaic_cast 是如何实现的？

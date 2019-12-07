@@ -43,7 +43,9 @@
 
 > [c++面向对象](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.md)
 
-> [c++类型转换cast](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1.md)
+> [c++类型转换cast](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2cast.md)
+
+> [智能指针-todo]()
 
 > [移动构造函数，右值引用，move-todo]
 
