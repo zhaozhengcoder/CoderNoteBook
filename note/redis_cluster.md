@@ -195,6 +195,9 @@
 
 ## redis主从/哨兵/集群的原理分析
 
+1. redis-cluster client 的原理
+
+    http://ralphbupt.github.io/2017/03/08/redis-cluster/
 
 ## 参考
 0. redis 命令文档： http://redisdoc.com/topic/cluster-tutorial.html
