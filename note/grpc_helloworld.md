@@ -164,3 +164,51 @@ gRPC 中的三种类型的 RPC 方法。
     rpc BidiHello(stream HelloRequest) returns (stream HelloResponse){}
 
 > [demo](../example_code/grpc_demo/main.go)
+
+如果有多个服务的话，可以在proto文件中，声明在一起：
+```
+// The Customer sercie definition
+service Customer {
+    rpc GetCustomers(GetCustomersRequest) returns (GetCustomersResponse) {}
+
+    rpc CreateCustomer (CustomerRequest) returns (CustomerResponse) {}
+}
+
+```
+
+声明为数组：
+```
+message GetCustomersResponse {
+    int32 ret = 1;
+    message keyword {
+        string word = 1;
+    }
+
+    // 声明为数组
+    repeated keyword wordarray = 3;
+}
+```
+
+在代码里面可以这样写入rsp：
+```
+func (s *server) GetCustomers(ctx context.Context, in *pb.GetCustomersRequest) (*pb.GetCustomersResponse, error) {
+	log.Printf("GetCustomers")
+
+	return &pb.GetCustomersResponse{
+		Ret: 1,
+		Wordarray: []*pb.GetCustomersResponseKeyword{
+			&pb.GetCustomersResponseKeyword{
+				Word: "hello",
+			},
+
+			&pb.GetCustomersResponseKeyword{
+				Word: "golang",
+			},
+
+			&pb.GetCustomersResponseKeyword{
+				Word: "grpc",
+			},
+		},
+	}, nil
+}
+```
