@@ -136,6 +136,8 @@ go run client.go
 
 ## demo 
 
+参考一个不错的例子： https://zhuanlan.zhihu.com/p/30624616 
+
 gRPC 中的三种类型的 RPC 方法。
 
 * simple RPC
