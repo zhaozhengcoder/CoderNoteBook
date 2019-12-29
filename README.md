@@ -92,6 +92,14 @@
 
 > [协程-todo]
 
+## feature 
+
+> [服务发现](./note/service_discovery.md)
+
+> [分布式锁](./note/分布式锁.md)
+
+> [限频器](./note/limiter.md)
+
 ## 操作系统
 
 > [unix环境高级编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)

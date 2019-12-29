@@ -4,7 +4,7 @@
 
 * [grpc helloworld例子](#helloworld)
 
-* [另外一个例子](#demo)
+* [几种rpc的类型](#demo)
 
 ---
 
@@ -138,7 +138,7 @@ go run client.go
 
 参考一个不错的例子： https://zhuanlan.zhihu.com/p/30624616 
 
-gRPC 中的三种类型的 RPC 方法。
+### 1. gRPC 中的三种类型的 RPC 方法。
 
 * simple RPC
     
@@ -163,9 +163,29 @@ gRPC 中的三种类型的 RPC 方法。
     
     rpc BidiHello(stream HelloRequest) returns (stream HelloResponse){}
 
-> [demo](../example_code/grpc_demo/main.go)
+    双边流的rpcdemo ： 
 
-如果有多个服务的话，可以在proto文件中，声明在一起：
+
+流式rpc和普通rcp的区别：
+
+
+举个例子：
+
+比如一对多的请求，比较适合用流式的rcp。比如，请求是一个点的坐标，响应是这个点最近的100个点。那么比较好的方式是，响应使用流式的rpc。 因为这是一个典型的一对多的例子。
+
+那么，为什么不能改成1对1的响应，返回的响应是一个数组。为什么不能是这样的设计？ 
+
+不这样做的原因是：
+1. 这样的相应包可能会很大，如果网络环境不是很好的话，容易超时。
+2. 就算不超时，这样的设计也并不是很优雅。因为，这样意味要，要不是等不到回包，要不然就是收到一个巨大的回包，然后开始“疯狂”的处理。 使用流式的rpc，尽量可能的用流的方式去一点点的平滑处理。
+
+对应的demo ： > [demo](../example_code/grpc_demo/stream_rpc/server.go)
+
+### 2. proto的声明
+
+对应的demo ： > [demo](../example_code/grpc_demo/demo/main.go)
+
+2.1 proto 如果有多个服务的话，可以在proto文件中，声明在一起：
 ```
 // The Customer sercie definition
 service Customer {
@@ -173,10 +193,9 @@ service Customer {
 
     rpc CreateCustomer (CustomerRequest) returns (CustomerResponse) {}
 }
-
 ```
 
-声明为数组：
+2.2 proto 声明为数组：
 ```
 message GetCustomersResponse {
     int32 ret = 1;
@@ -213,4 +232,15 @@ func (s *server) GetCustomers(ctx context.Context, in *pb.GetCustomersRequest) (
 }
 ```
 
-## grpc github 提供的example ： https://github.com/grpc/grpc-go/tree/master/examples/route_guide 
+### 
+
+----
+## 参考
+
+* rpc中文文档：
+
+    http://doc.oschina.net/grpc?t=58009
+
+* grpc github 提供的example ： 
+    
+    https://github.com/grpc/grpc-go/tree/master/examples/route_guide 
