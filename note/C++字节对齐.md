@@ -45,6 +45,15 @@ struct TEST
     char c;
 };
 
+struct TEST2
+{
+    char val1;
+    char val2;
+    char val3;
+    char val4;
+    char val5;
+};
+
 int main()
 {
     TEST test;
@@ -55,6 +64,7 @@ int main()
     test.c = 'a';
 
     std::cout << sizeof(test) << std::endl;     // 输出 16 
+    std::cout << sizeof(test2) << std::endl;    // 输出 5
     return 0;
 }
 ```
