@@ -27,7 +27,7 @@
 
 ## C/C++
 
-> [c++ 语法](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E5%AD%A6%E4%B9%A0.md)
+> [c++ 语法](./note/c++学习.md)
 
 > [c++字节对齐](./note/C++字节对齐.md)
 
