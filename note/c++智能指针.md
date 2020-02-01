@@ -375,3 +375,71 @@
         std::cout << "bp2.use_count() = " << bp2.use_count() << std::endl;
     }  // Bad 对象将会被删除两次
     ```
+
+
+---
+
+附上一个《c++ 标准库》的例子 
+```
+作者：明月照我心
+链接：https://zhuanlan.zhihu.com/p/72354412
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+ 1 #include <iostream>
+ 2 #include <string>
+ 3 #include <vector>
+ 4 #include <memory>
+ 5 using namespace std;
+ 6 
+ 7 int main(void)
+ 8 {
+ 9     // two shared pointers representing two persons by their name
+10     shared_ptr<string> pNico(new string("nico"));
+11     shared_ptr<string> pJutta(new string("jutta"),
+12             // deleter (a lambda function) 
+13             [](string *p)
+14             { 
+15                 cout << "delete " << *p << endl;
+16                 delete p;
+17             }
+18         );
+19 
+20     // capitalize person names
+21     (*pNico)[0] = 'N';
+22     pJutta->replace(0, 1, "J");
+23 
+24     // put them multiple times in a container
+25     vector<shared_ptr<string>> whoMadeCoffee;
+26     whoMadeCoffee.push_back(pJutta);
+27     whoMadeCoffee.push_back(pJutta);
+28     whoMadeCoffee.push_back(pNico);
+29     whoMadeCoffee.push_back(pJutta);
+30     whoMadeCoffee.push_back(pNico);
+31 
+32     // print all elements
+33     for (auto ptr : whoMadeCoffee)
+34         cout << *ptr << " ";
+35     cout << endl;
+36 
+37     // overwrite a name again
+38     *pNico = "Nicolai";
+39 
+40     // print all elements
+41     for (auto ptr : whoMadeCoffee)
+42         cout << *ptr << " ";
+43     cout << endl;
+44 
+45     // print some internal data
+46     cout << "use_count: " << whoMadeCoffee[0].use_count() << endl;
+47 
+48     return 0;
+49 }
+
+// 
+
+1）对智能指针pNico的拷贝是浅拷贝，所以当我们改变对象“Nico”的值为“Nicolai”时，指向它的指针都会指向新值。　　
+
+2）指向对象“Jutta”的有四个指针：pJutta和pJutta的三份被安插到容器内的拷贝，所以上述程序输出的use_count为4。
+```
+
