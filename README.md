@@ -47,11 +47,7 @@
 
 > [c++类型转换cast](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2B%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2cast.md)
 
-> [智能指针-todo]()
-
-> [移动构造函数，右值引用，move-todo]
-
-> [c++我用到的一些回调函数实现的方式-todo]
+> [智能指针](./note/c++智能指针.md)
 
 > [STL-todo](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/c%2B%2BSTL.md)
 
