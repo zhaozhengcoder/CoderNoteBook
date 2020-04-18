@@ -35,7 +35,7 @@
 
 * [几个值的思考的问题](#几个值的思考的问题)
 
-    * 建立tcp建立之后，断开网线，会发生什么？
+    * 建立tcp建立之后，断开网线，会发生什么？(tcp半开连接)
 
     * 向一个没有监听的端口建立tcp连接，会发生什么？
 
@@ -43,14 +43,11 @@
 
     * 为什么需要四次挥手？（为什么上次不可以？）
 
-
     * 什么时候会出现rst包？
 
     * 服务器已经close了fd，然后client取从这个fd上面接受和发送数据，分别会出现什么问题？
 
     * sigpipe信号什么时候会出现？出现了会怎么样？
-    
-    ---
 
     * close和shutdown关闭tcp连接的区别？
 
@@ -61,6 +58,10 @@
     * tcp内核的缓冲区多大？如何查看？
 
     * 惊群问题
+
+    * tcp中为什么时候会出现closing状态
+
+    * epoll模式下的server把数据从网卡接受到数据到读入buff的流程
 
 ---
 
@@ -77,8 +78,11 @@
         3. Server 应答(acknowledge (ACK)) the client's SYN, 同时自己也发送一个SYN分节，包含Server将在同一连接中发送的数据的初始化序号。服务器发送自己的SYN,并对Client's SYN确认(ACK).
 
         4. client ACK the server's SYN
-        
-        ![](../pic/tcp1.png)
+
+
+            ![](../pic/tcp1.png)
+
+
 
     * 四次挥手
 
@@ -98,7 +102,11 @@
 
     * close_wait
 
+完整的tcp流程：
 
+![](../pic/tcp3.png)
+
+---
 
 * rst 包
 
@@ -294,6 +302,18 @@ select，poll，epoll 虽然可以同时监听多个文件描述符，但是它�
 http://blog.51cto.com/yaocoder/1309358
 
 http://blog.51cto.com/yaocoder/1589919
+
+
+### 1.1 TCP建立连接之后，kill客户端后会发生什么？
+
+如果一个epoll的server启动，和使用telnet建立了连接，那么现在tcp的连接是ESTABLISHED了。如果把telnet kill掉的话，（如果epoll sever上面没有特殊处理的事件的话）那么，使用netstat查看的话，就会看到一个server上面出现close wait的情况。
+
+这就表示server没有处理fd异常关闭的情况，这样会导致服务器一直出现一个close wait的情况，并且占用了一个fd。那么解决的办法是，在epoll上面添加一个EPOLLRDHUP事件的处理。比如我用了epoll，那么我监听客户端连接套接字（5）的EPOLLRDHUP这个事件。当客户端意外断开时，这个事件就会被触发，触发之后。我们针对性的对这个fd（5）执行close()操作就可以了。
+
+参考：
+
+服务端close-wait或者time-wait状态过多会导致什么样的后果？ - 果冻虾仁的回答 - 知乎
+https://www.zhihu.com/question/298214130/answer/1090787813
 
 ---
 
