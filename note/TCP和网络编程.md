@@ -80,7 +80,7 @@
         4. client ACK the server's SYN
 
 
-            ![tu](../pic/tcp1.png)
+            ![tu](../pic/tcp1.PNG)
 
 
 
@@ -94,7 +94,7 @@
 
         4. 接收这个最终FIN的原发送端TCP（即主动关闭的那一端）确认这个FIN
 
-        ![tu](../pic/tcp2.png)
+        ![tu](../pic/tcp2.PNG)
 
     * time_wait
 
@@ -104,7 +104,7 @@
 
 完整的tcp流程：
 
-![tu](../pic/tcp3.png)
+![tu](../pic/tcp3.PNG)
 
 ---
 
@@ -310,7 +310,13 @@ http://blog.51cto.com/yaocoder/1589919
 
 这就表示server没有处理fd异常关闭的情况，这样会导致服务器一直出现一个close wait的情况，并且占用了一个fd。那么解决的办法是，在epoll上面添加一个EPOLLRDHUP事件的处理。比如我用了epoll，那么我监听客户端连接套接字（5）的EPOLLRDHUP这个事件。当客户端意外断开时，这个事件就会被触发，触发之后。我们针对性的对这个fd（5）执行close()操作就可以了。
 
-参考：
+
+**kill 和 直接断网的区别是：**
+
+unix 网络编程书里面写“TCP FIN sent by kernel when client is killed or crashed”当client被kill的时候，内核会发送fin包给server。这样服务器这边进入close wait的状态，若epoll注册了HUP的事件，把连接关闭close wait变为close；若没有处理，服务器这里就有一个close wait的状态，占用了fd。
+
+
+**参考：**
 
 服务端close-wait或者time-wait状态过多会导致什么样的后果？ - 果冻虾仁的回答 - 知乎
 https://www.zhihu.com/question/298214130/answer/1090787813
