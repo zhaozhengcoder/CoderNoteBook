@@ -80,7 +80,7 @@
         4. client ACK the server's SYN
 
 
-            ![](../pic/tcp1.png)
+            ![tu](../pic/tcp1.png)
 
 
 
@@ -94,7 +94,7 @@
 
         4. 接收这个最终FIN的原发送端TCP（即主动关闭的那一端）确认这个FIN
 
-        ![](../pic/tcp2.png)
+        ![tu](../pic/tcp2.png)
 
     * time_wait
 
@@ -104,7 +104,7 @@
 
 完整的tcp流程：
 
-![](../pic/tcp3.png)
+![tu](../pic/tcp3.png)
 
 ---
 
