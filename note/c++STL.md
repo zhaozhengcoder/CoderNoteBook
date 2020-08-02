@@ -63,7 +63,7 @@
 
 ### map访问一个不存在key的元素会怎么样？
 
-这个如果不知道这个规则的话，可能会掉坑。如果map里面不存在这个key的话，访问的时候，会创建一个默认的value对象，然后把这个默认的对象返回。
+这个如果不知道这个规则的话，可能会掉坑。**如果map里面不存在这个key的话，访问的时候，会创建一个默认的value对象，然后把这个默认的对象返回。** 所以, 判断一个map里面是否包含某个元素，最好用如这样的逻辑进行判断 map.find() == map.end() 
 
 ```
 class STUDENT
@@ -163,4 +163,16 @@ push back
 init
 copy
 copy
+```
+
+### swap 
+
+一个vector中有size和capacity两个概念，当向一个vector里面push元素的时候，size和capacity都增长。然后，当删除元素的时候，size会减小，但是capacity不会。如果希望capacity也可以减小的话，往往会利用swap的机制。
+
+```
+vector<int>(vi).swap(vi);
+
+等价于
+vector<int> tmp = vi;
+vi.swap(tmp); 
 ```
