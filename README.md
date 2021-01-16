@@ -69,36 +69,25 @@
 
 ## 组件
 
-### redis
-
-[redis-cluster搭建](./note/redis_cluster.md)
-
 ### data Representation 
 
 [protobuff_hellworld](./note/protobuff_with_golang_tutorial.md)
 
-### grpc 
+### 乱七八糟的东西 
 
-[grpc](./note/grpc_helloworld.md)
-
-
-> [kafka-todo]
-
-> [nginx-todo]
-
-> [rpc-todo]
-
-> [协程-todo]
-
-## feature 
-
-> [服务发现](./note/service_discovery.md)
+> [grpc](./note/grpc_helloworld.md)
 
 > [分布式锁](./note/分布式锁.md)
 
 > [限频器](./note/limiter.md)
 
-## 操作系统
+> [redis-cluster搭建](./note/redis_cluster.md)
+
+> [服务发现-todo]
+
+> [协程-todo]
+
+### 操作系统
 
 > [unix环境高级编程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)
 
