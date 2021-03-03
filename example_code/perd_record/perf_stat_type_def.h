@@ -1,0 +1,1 @@
+PERF_DECLARE_STAT_TYPE(_type_test_func)
