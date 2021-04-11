@@ -1,0 +1,11 @@
+syntax = "proto3";
+package heartbeat;
+
+message HeartBeatMessage{
+       int64  dateTime = 1;
+       string hostName = 2;
+       string ip = 3;
+       string info = 4;
+       string info2 = 5;
+       int64  info3 = 6;
+}
