@@ -1,5 +1,5 @@
-#ifndef __CAS_H__
-#define __CAS_H__
+#ifndef __LOCKFREE_STACK_H__
+#define __LOCKFREE_STACK_H__
 
 class Node 
 {
@@ -17,7 +17,8 @@ class Stack
         void push(int val, int debug_thread_info);
         Node* pop();
         void print();
-
+        int get_size();
+        
 private:
     std::atomic<Node*> _top;
 };
