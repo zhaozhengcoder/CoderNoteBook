@@ -1,0 +1,20 @@
+        -:    0:Source:module_a.c
+        -:    0:Graph:module_a.gcno
+        -:    0:Data:module_a.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <iostream>
+        -:    2:#include "module_a.h"
+        -:    3:
+        1:    4:int func_a(int &val)
+        -:    5:{
+        1:    6:    if (val > 100)
+        -:    7:    {
+    #####:    8:        val = val * 100;
+        -:    9:    }
+        -:   10:    else 
+        -:   11:    {
+        1:   12:        val++;
+        -:   13:    }
+        1:   14:    return 0;
+        -:   15:}

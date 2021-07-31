@@ -1,0 +1,17 @@
+        -:    0:Source:main.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:1
+        -:    0:Programs:1
+        -:    1:#include <iostream>
+        -:    2:#include "module_a.h"
+        -:    3:#include "module_b.h"
+        -:    4:
+        1:    5:int main()
+        -:    6:{
+        1:    7:    int val = 50;
+        1:    8:    func_a(val);
+        1:    9:    func_b(val);
+        -:   10:
+        1:   11:    return 0;
+        -:   12:}
