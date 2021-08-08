@@ -1,2 +1,3 @@
 *.out
 .vscode
+.DS_Store
