@@ -10,8 +10,8 @@
 * [C/C++](#C/C++)
 * [Linux](#Linux和系统编程)
 * [数据库](#数据库)
-* [编码实践 / 设计模式](#编码实践/设计模式)
-* [数据结构 / 算法](#数据结构/算法)
+* [编码实践和设计模式](#编码实践和设计模式)
+* [数据结构和算法](#数据结构和算法)
 * [工具和锤子](#工具和锤子)
 
 ---
@@ -79,7 +79,7 @@
 
 > [vim插件](https://www.jianshu.com/p/c527d9c2717a)
 
-## 编码实践/设计模式
+## 编码实践和设计模式
 
 >[《重构》的笔记](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E3%80%8A%E9%87%8D%E6%9E%84%E3%80%8B%E7%9A%84%E7%AC%94%E8%AE%B0.md)
 
@@ -89,7 +89,7 @@
 
 > [Google-style](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
-## 数据结构/算法
+## 数据结构和算法
 
 >[常见的算法题](https://github.com/zhaozhengcoder/Algorithm)
 
