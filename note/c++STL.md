@@ -3,19 +3,20 @@
 ## 目录
 
 * [迭代器失效](#迭代器失效)
+* [map访问不存在的元素会怎么样](#map访问一个不存在key的元素会怎么样？)
 * [emplace_back](#emplace_back)
-
-
+* [使用swap缩容](#swap)
 
 ---
 
-## 迭代器失效
+基本的STL的使用方法就不在这里赘述了，这里会整理一下stl使用的一些常见的坑。
 
-* erase 失效的例子
+### 迭代器失效
 
-* 在遍历的时候，添加/删除元素
+迭代器在添加，删除元素之后都有可能失效。在添加，删除之后，要确保自己的迭代器是没有失效的。
 
-    
+* erase 失效的例子 ：在遍历的时候，添加/删除元素
+
     迭代器失效的原理:因为对应的元素存放的内存的地址发生了改变，导致迭代器失效。
 
     举个例子，比如push_back多次之后，vector会被迁移。这样原来的地址发生了改变。导致迭代器失效。
@@ -54,12 +55,11 @@
     {
         vector<int> vi = { 1,2,3,3,5,3};
         delete_ele(vi, 3);
-
-
         return 0;
     }
     ```
 
+---
 
 ### map访问一个不存在key的元素会怎么样？
 
@@ -134,6 +134,8 @@ init defualt
 ```
 
 
+----
+
 ### emplace_back 
 
 emplace_back和push_back的区别，为什么要使用emplace_back？
@@ -165,6 +167,7 @@ copy
 copy
 ```
 
+---
 ### swap 
 
 一个vector中有size和capacity两个概念，当向一个vector里面push元素的时候，size和capacity都增长。然后，当删除元素的时候，size会减小，但是capacity不会。如果希望capacity也可以减小的话，往往会利用swap的机制。
@@ -176,3 +179,8 @@ vector<int>(vi).swap(vi);
 vector<int> tmp = vi;
 vi.swap(tmp); 
 ```
+
+### 其他
+
+C++后端开发的踩坑整理
+https://www.jianshu.com/p/b67222570785
