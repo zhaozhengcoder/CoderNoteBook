@@ -8,11 +8,11 @@
 ## 目录
 
 * [C/C++](#C/C++)
-* [Linux](#Linux)
+* [Linux](#Linux和系统编程)
 * [数据库](#数据库)
 * [编码实践 / 设计模式](#编码实践/设计模式)
 * [数据结构 / 算法](#数据结构/算法)
-* [工具](#工具)
+* [工具和锤子](#工具和锤子)
 
 ---
 
@@ -32,7 +32,7 @@
 
 >[数据库索引](./note/数据库-索引.md)
 
-## Linux
+## Linux和系统编程
 
 > [Linux 基本命令](./note/linux命令.md)
 
@@ -59,8 +59,6 @@
 > [限频器](./note/limiter.md)
 
 > [redis-cluster搭建](./note/redis_cluster.md)
-
-> [服务发现-todo]
 
 > [协程]
 
@@ -98,6 +96,9 @@
 >[关于系统设计类的问题](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98.md)
 
 
+## 书单和博客
+
+* [书单和博客](./note/书单和博客.md)
 
 ## 后记
 
