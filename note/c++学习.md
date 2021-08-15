@@ -17,7 +17,6 @@
 * [比较重要的零散的东西](#比较重要的零散的东西)
     * [拷贝构造函数](#拷贝构造函数)
     * [一个对象的空间布局](#一个对象的空间布局)
-    * [STL迭代器失效](#STL迭代器失效)
 
 ---
 
@@ -27,12 +26,11 @@
 http://www.cnblogs.com/miloyip/archive/2010/09/17/behind_cplusplus.html
 
 
-
 ## 语法
 
 在这个地方，我罗列的一些内容是对我而言，比较容易忘记的，或者是掉过一些坑的东西。各个点之间也没有什么逻辑关系。
 
-### 理解extern关键字
+### 1. 理解extern关键字
 
 思考一个问题，如何在main.cpp文件里面调用 fun.c 文件里面的func 函数？
 换一句话，就是如果在c++的代码里面调用c的代码。
@@ -89,7 +87,20 @@ int add(int x, int y);
 #endif
 ```
 
-### 使用初始化列表初始化
+当extern 修饰变量的时候，表示此变量在其他的编译单元中定义。
+
+```
+// module_a.cpp
+
+extern int val;
+
+int foo(int a)
+{
+    return val * a;
+}
+```
+
+### 2. 使用初始化列表初始化
 
 为什么要使用初始化列表初始化？
 
@@ -107,9 +118,9 @@ public:
 };
 ```
 
-### 右值引用
+### 3. 右值引用
 
-右值引用，是c++11里面一个新特性。他解决的问题是：**延长临时对象的生命周期**。
+右值引用，是c++里面一个重要的特性。他解决的问题是：**延长临时对象的生命周期，避免对象拷贝的开销**。
 
 从下面几个方面入手：
 
@@ -127,29 +138,26 @@ using namespace std;
 int g_constructCount=0;
 int g_copyConstructCount=0;
 int g_destructCount=0;
-struct A
-{
+
+struct A {
     A(){
         cout<<"construct: "<<++g_constructCount<<endl;    
     }
     
-    A(const A& a)
-    {
+    A(const A& a) {
         cout<<"copy construct: "<<++g_copyConstructCount <<endl;
     }
-    ~A()
-    {
+
+    ~A() {
         cout<<"destruct: "<<++g_destructCount<<endl;
     }
 };
 
-A GetA()
-{
+A GetA() {
     return A();
 }
 
-int main() 
-{
+int main() {
     A a = GetA();
     return 0;
 }
@@ -172,29 +180,24 @@ destruct: 3              # 析构 a
 #include <iostream>
 using namespace std;
 
-class test
-{
+class test {
 public:
-    test()
-    {
+    test() {
         cout<<"construct"<<endl;
     }
-    test(const test & t)
-    {
+    test(const test & t) {
         cout<<"copy construct"<<endl;
     }
-    ~test()
-    {
+    ~test() {
         cout<<"desconstruct"<<endl;
     }
 };
 
-test get_test()
-{  
+test get_test() {  
     return test();
 }
-int main()
-{
+
+int main() {
     test t1 = get_test();
 }
 ```
@@ -352,7 +355,7 @@ desconstruct
     cout<<str2<<endl;           //st2的输出是空
     ```
 
-### 移动构造函数 / 移动赋值函数 
+### 4. 移动构造函数 / 移动赋值函数 
 ```
 class Socket
 {
@@ -423,17 +426,17 @@ Socket::Socket(int sockfd) fd : 100         # Socket s4(move(s1)); 的输出 ，
 Socket(Socket && rhs)
 ```
 
-### 完美转发 forward
+### 5. 完美转发 forward
 
 在函数模板中，完全依照模板的参数的类型（即保持参数的左值、右值特征），将参数传递给函数模板中调用的另外一个函数。
 
-## 智能指针
+### 6. 智能指针
 
 这个写起来发现似乎比较多，单独开一个文件写吧。
 
 > [c++智能指针](./c++智能指针.md)
 
-## 函数指针
+### 7. 函数指针
 
 定义一个函数的指针
 ```
@@ -566,7 +569,7 @@ int main()
 
 https://elloop.github.io/c++/2015-12-15/learning-using-stl-12-std-bind
 
-## cpp11的语法糖
+### 8. cpp11的语法糖
 
 * for-each
     ```
@@ -605,7 +608,7 @@ https://elloop.github.io/c++/2015-12-15/learning-using-stl-12-std-bind
 
     ```
 
-## cpp11的其他新特性
+### 9. cpp11的其他新特性
 
 * 占位符和bind函数 
 
@@ -644,15 +647,7 @@ https://elloop.github.io/c++/2015-12-15/learning-using-stl-12-std-bind
 
     c++11 线程库
 
-## 模板与泛型编程
-
-## 异常机制
-
-## 空间分配 
-
-## 多态/虚函数
-
-## 临时对象
+### 10. 临时对象
 c++ 里面的临时对象是不可见的 —— 他们不在堆上面创建，同时也没有名字，这样的对象就是临时对象。
 
 常见的有两种：
@@ -738,7 +733,7 @@ int main()
 // g++ -fno-elide-constructors 好像是这个参数可以关闭
 ```
 
-## 作用域符 ::
+### 11. 作用域符 ::
 
 1. global scope (全局作用域符），用法（::name)
 
@@ -746,7 +741,7 @@ int main()
 
 3. namespace scope (命名空间作用域符），用法(namespace::name)
 
-## 宏
+### 12. 宏
 
 宏，const，inline的区别在《effective c++》里面的第一部分就由提到。
 但是，我的学习顺序是 先学习了c++，然后再看了c。我会更习惯于用const，inline，而不是宏。
@@ -773,9 +768,9 @@ forceinline字面意思上是强制内联，一般可能只是对代码体积不
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 
 
-## 比较重要的零散的东西
+### 13. 比较重要的零散的东西
 
-### 拷贝构造函数
+* 拷贝构造函数为什么需要是const
 
 下面这段代码有什么问题？
 ```
@@ -793,3 +788,8 @@ class A
 ```
 A(const A & other) { m = other.m; }
 ```
+
+* 一个对象的空间布局
+
+    todo
+    

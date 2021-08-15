@@ -11,7 +11,7 @@
 
 基本的STL的使用方法就不在这里赘述了，这里会整理一下stl使用的一些常见的坑。
 
-### 迭代器失效
+### 1. 迭代器失效
 
 迭代器在添加，删除元素之后都有可能失效。在添加，删除之后，要确保自己的迭代器是没有失效的。
 
@@ -61,7 +61,7 @@
 
 ---
 
-### map访问一个不存在key的元素会怎么样？
+### 2. map访问一个不存在key的元素会怎么样？
 
 这个如果不知道这个规则的话，可能会掉坑。**如果map里面不存在这个key的话，访问的时候，会创建一个默认的value对象，然后把这个默认的对象返回。** 所以, 判断一个map里面是否包含某个元素，最好用如这样的逻辑进行判断 map.find() == map.end() 
 
@@ -86,21 +86,6 @@ class STUDENT
             this->class_id = class_id;
         }
 
-        STUDENT(const STUDENT & student)
-        {
-            cout << "copy" << endl;
-            this->student_id = student.student_id;
-            this->class_id = student.class_id;
-        }
-
-        STUDENT& operator=(const STUDENT & student)
-        {
-            cout << "operator=" << endl;
-            this->student_id = student.student_id;
-            this->class_id = student.class_id;
-            return *this;
-        }
-
         int print_student_id()
         {
             return this->student_id;
@@ -111,17 +96,6 @@ int main()
 {
     map<int, STUDENT> student_map;
     cout << student_map[100].print_student_id() << endl;
-
-    // 1. 这里会先创建会在map里面调用默认的无参数的构造函数 创建对象
-    // 2. STUDENT(100,200) 创建一个临时的对象
-    // 3. 然后调用赋值构造函数，拷贝到map里面的对象中
-    // student_map[100] = STUDENT(100,200);
-    
-    // 1. 这里也是先创建一个对象
-    // 2. 然后调用拷贝构造函数创建pair
-    // 3. 再调用一次拷贝构造函数给map里面的对象进行构造
-    // student_map.insert(std::make_pair<int, STUDENT>(200, STUDENT(200,201)));
-
     return 0;
 }
 ```
@@ -136,7 +110,7 @@ init defualt
 
 ----
 
-### emplace_back 
+### 3. emplace_back 
 
 emplace_back和push_back的区别，为什么要使用emplace_back？
 
@@ -168,7 +142,7 @@ copy
 ```
 
 ---
-### swap 
+### 4. swap 
 
 一个vector中有size和capacity两个概念，当向一个vector里面push元素的时候，size和capacity都增长。然后，当删除元素的时候，size会减小，但是capacity不会。如果希望capacity也可以减小的话，往往会利用swap的机制。
 
@@ -180,7 +154,7 @@ vector<int> tmp = vi;
 vi.swap(tmp); 
 ```
 
-### 其他
+### 5. 其他
 
 C++后端开发的踩坑整理
 https://www.jianshu.com/p/b67222570785
