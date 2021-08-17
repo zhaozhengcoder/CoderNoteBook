@@ -46,6 +46,94 @@
     
     ![](../pic/malloc2.png)
     
+    ```
+    #include <iostream>
+    //#include <iomanip>
+
+    // 重载 c++的运算符号 
+    void * operator new(std::size_t size)
+    {
+        void* k_buf =  malloc(size);
+        std::cout << "size : "<< size <<", malloc : " <<  k_buf  << std::endl; 
+        return k_buf;
+    }
+
+    void * operator new[](std::size_t size)
+    {
+        void * k_buf =  malloc(size);
+        std::cout << "size : " << size <<", malloc[] : " <<  k_buf  <<std::endl; 
+        return k_buf;
+    }
+
+    void operator delete(void * p)
+    {
+        std::cout<<"free "<< p <<std::endl; 
+        free(p);
+    }
+
+    void operator delete [] (void * p)
+    {
+        std::cout<<"free[] "<< p <<std::endl; 
+        free(p);
+    }
+
+    //定义一个简单的成员类 
+    class Member
+    {
+    protected: 
+        int  k_member1;
+
+    public:
+        Member() {k_member1 = 0;}
+        ~Member() {}
+    };
+
+    int main()
+    {
+        int * p_int = new int[10];
+        std::cout << "p_int addr : " << (void *)p_int << std::endl; 
+        // delete [] p_int;
+        delete p_int; 
+
+        std::cout << "============" << std::endl;
+        std::cout << "sizeof Member : " << sizeof(Member) << std::endl;
+        std::cout << "sizeof size_t : " << sizeof(size_t) << std::endl;
+
+        Member * member = new Member();
+        std::cout << "member : " << member << std::endl; 
+        delete member; 
+
+        Member * member_array = new Member[5];
+        std::cout << "member_array : " << member_array << std::endl; 
+        // delete[] member_array;
+
+        void * ptr = (void*)(member_array) - sizeof(size_t);
+        std::cout << "ptr     : " << ptr <<std::endl; 
+        int * get_num  = (int *)ptr;
+        std::cout << "get num " << *get_num << std::endl;
+
+        free(p);
+
+        return 0;
+    }
+
+    ./a.out
+    size : 40, malloc[] : 0x20cdeb0
+    p_int addr : 0x20cdeb0
+    free 0x20cdeb0
+    ============
+    sizeof Member : 4
+    sizeof size_t : 8
+    size : 4, malloc : 0x20ce2f0
+    member : 0x20ce2f0
+    free 0x20ce2f0
+    size : 28, malloc[] : 0x20cdeb0    // 内存池分配的地址是 b0 
+    member_array : 0x20cdeb8           // 数组的首位置地址是 b8  中间正好相差8个字节 == sizeof(size_t) new[] 像内存池多申请了一个size_t的长度，用于存放数组元素的长度
+    get num 5                          // 正好是数组长度
+    ptr     : 0x20cdeb0
+    ```
+
+
     示例代码如下：
     ```
     // 用于分配内存的函数
