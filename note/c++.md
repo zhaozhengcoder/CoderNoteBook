@@ -32,7 +32,7 @@
 
 #### 内存分配
 
-> [c++的new和delete](./c++的new和delete.md)
+> [c++的new和delete](./c++内存管理.md)
 
 > [智能指针](./c++智能指针.md)
 
