@@ -343,20 +343,29 @@
 
 ### brk 和 mmap的区别
 
-todo
+内存分配通过两个系统调用完成，分别是brk 和 mmap。判断的标准是如果小于128k的话，会通过brk分配，大于的话走mmap。
+
+
+brk分配的内存需要等到高地址内存释放以后才能释放（例如，在B释放之前，A是不可能释放的，这就是内存碎片产生的原因，什么时候紧缩看下面），而mmap分配的内存可以单独释放。比如当前释放内存块A，当A释放时候，堆顶指针并不能收缩。只有当内存块B也释放的时候，data指针参会收缩。
+
+![brk](../pic/brk1.png)
+
+当通过brk申请到内存之后，修改edata指针之后，并不会真的分配内存，直到访问这块内存的时候，才会出发缺页中断。
+
+http://abcdxyzk.github.io/blog/2015/08/05/kernel-mm-malloc/
 
 ---
-* 参考
+### 参考
 
-    1. https://www.zhihu.com/question/406164583/answer/2040289707
+1. https://www.zhihu.com/question/406164583/answer/2040289707
 
-    2. new和delete以及new[]和delete[]一定要配对使用吗 - 程序喵大人的文章 - 知乎
+2. new和delete以及new[]和delete[]一定要配对使用吗 - 程序喵大人的文章 - 知乎
 https://zhuanlan.zhihu.com/p/144600712
 
-    3. 关于malloc返回值的问题？ - 程序喵大人的回答 - 知乎
+3. 关于malloc返回值的问题？ - 程序喵大人的回答 - 知乎
 https://www.zhihu.com/question/275695474/answer/1648135150
 
-    4. https://wetest.qq.com/lab/view/318.html
+4. https://wetest.qq.com/lab/view/318.html
 
-    5. 作者：yuantj
+5. 作者：yuantj
        链接：https://www.zhihu.com/question/406164583/answer/2040289707
