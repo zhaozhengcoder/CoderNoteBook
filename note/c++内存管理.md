@@ -354,6 +354,12 @@ brk分配的内存需要等到高地址内存释放以后才能释放（例如�
 
 http://abcdxyzk.github.io/blog/2015/08/05/kernel-mm-malloc/
 
+
+#### 进程的内存空间
+附图一张 
+
+![tu](../pic/内存_1.png)
+
 ---
 ### 参考
 
