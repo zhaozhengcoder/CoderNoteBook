@@ -6,10 +6,11 @@
 * [map访问不存在的元素会怎么样](#map访问一个不存在key的元素会怎么样？)
 * [emplace_back](#emplace_back)
 * [使用swap缩容](#swap)
+* [stl sort的坑](#sort)
 
 ---
 
-基本的STL的使用方法就不在这里赘述了，这里会整理一下stl使用的一些常见的坑。
+**基本的STL的使用方法就不在这里赘述了，这里会整理一下stl使用的一些常见的坑。**
 
 ### 1. 迭代器失效
 
@@ -153,6 +154,10 @@ vector<int>(vi).swap(vi);
 vector<int> tmp = vi;
 vi.swap(tmp); 
 ```
+
+### 5. std::sort 的坑
+
+stl中sort函数有个bug或者是个坑（或者是个feature），就是sort的时候，如果重载了cmp函数，需要cmp函数需要满足**严格弱序**。
 
 ### 5. 其他
 

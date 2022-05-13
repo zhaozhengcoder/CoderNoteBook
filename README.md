@@ -29,15 +29,9 @@
 
 ## 编码实践和设计模式
 
->[设计模式](./note/设计模式.md)
+> [设计模式](./note/设计模式.md)
 
 > [Google-style 编码规范](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
-
-## 数据库
-
->[数据库系统基本概念](./note/数据库.md)
-
->[数据库索引](./note/数据库-索引.md)
 
 ## Linux和系统编程
 
@@ -57,20 +51,23 @@
 
 > [linux网络编程](./note/TCP和网络编程.md)
 
+## 数据库
+
+>[数据库系统基本概念](./note/数据库.md)
+
+>[数据库索引](./note/数据库-索引.md)
+
 ### 乱七八糟的东西 
-
-> [grpc](./note/grpc_helloworld.md)
-
-> [分布式锁](./note/分布式锁.md)
-
-> [限频器](./note/limiter.md)
-
-> [redis-cluster搭建](./note/redis_cluster.md)
 
 > [协程]
 
 > [protobuff_hellworld](./note/protobuff_with_golang_tutorial.md)
 
+> [id生成器]()
+
+> [分布式锁](./note/分布式锁.md)
+
+> [限频器](./note/limiter.md)
 
 ## 工具和锤子
 
@@ -78,9 +75,7 @@
 
 > [make构建教程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_make%E6%95%99%E7%A8%8B.md)
 
->[svn教程](https://www.jianshu.com/p/d6abd4a986a6)
-
-> [window下的ubuntu子系统](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E5%B7%A5%E5%85%B7%E6%A0%88.md)
+> [svn教程](https://www.jianshu.com/p/d6abd4a986a6)
 
 > [vscode插件](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/vscode%E5%86%99c%2B%2B%E6%8F%92%E4%BB%B6%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE.md)
 
