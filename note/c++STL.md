@@ -96,7 +96,9 @@ class STUDENT
 int main()
 {
     map<int, STUDENT> student_map;
+    cout << student_map.size() << endl;   // size 0
     cout << student_map[100].print_student_id() << endl;
+    cout << student_map.size() << endl;   // size 1   // 不要通过这种方式去判断对象是否存在，因为它会在map中创建一个对象
     return 0;
 }
 ```
@@ -159,7 +161,7 @@ vi.swap(tmp);
 
 stl中sort函数有个bug或者是个坑（或者是个feature），就是sort的时候，如果重载了cmp函数，需要cmp函数需要满足**严格弱序**。
 
-### 5. 其他
+### 6. 其他
 
 C++后端开发的踩坑整理
 https://www.jianshu.com/p/b67222570785
