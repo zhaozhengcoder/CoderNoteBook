@@ -41,7 +41,7 @@
 
 > [linux 关于性能分析的命令](./note/linux命令_linux性能分析和优化.md)
 
-> [其他](./note/linux命令整理.md)
+> [linux 其他](./note/linux命令整理.md)
 
 > [unix环境高级编程](./note/unix环境高级编程.md)
 
@@ -77,7 +77,7 @@
 
 >[常见的算法题](https://github.com/zhaozhengcoder/Algorithm)
 
->[关于系统设计类的问题](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E7%B1%BB%E7%9A%84%E9%97%AE%E9%A2%98.md)
+>[关于系统设计类的问题](https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md)
 
 
 ## 书单和博客

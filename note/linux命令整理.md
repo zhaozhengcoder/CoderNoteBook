@@ -9,16 +9,16 @@
 * [tcpdump](#tcpdump命令)
 
 ## 常用命令
-> [linux 常用命令](./note/linux命令_常用.md)
+> [linux 常用命令](./linux命令_常用.md)
 
 ## gcc命令
-> [linux gcc命令](./note/linux命令_gcc.md)
+> [linux gcc命令](./linux命令_gcc.md)
 
 ## 配置命令
-> [linux 关于配置的命令](./note/linux配置.md)
+> [linux 关于配置的命令](./linux配置.md)
 
 ## shell语法
-> [bash&shell 编程](./note/bash&shell编程.md)
+> [bash&shell 编程](./bash&shell编程.md)
 
 ## tcpdump命令
-> [linux tcpdump命令](./note/linux命令_tcpdump.md)
+> [linux tcpdump命令](./linux命令_tcpdump.md)

@@ -1,7 +1,10 @@
 ## linux 配置
 
 ## 目录
+* [linux产生core文件](#linux产生core文件)
+* [zsh](#zsh)
 
+---
 
 ## linux产生core文件
 
@@ -32,7 +35,30 @@
     core-%e-%p-%t
     ```
 
-## linux更换源
+## zsh
 ```
+# 1. 安装zsh
+yum -y install zsh
+
+# 切换sh
+chsh -s /bin/zsh
+
+# 安装oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# 安装zsh插件
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+# 在vim ~/.zshrc添加插件
+plugins=(
+        git
+        zsh-autosuggestions
+        zsh-syntax-highlighting
+)
+
+# 
+source ~/.zshrc 
 ```
 
