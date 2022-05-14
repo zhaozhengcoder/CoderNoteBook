@@ -25,6 +25,8 @@
 
 > [函数调用过程](./note/函数调用过程.md)
 
+> [内存管理](./note/c++内存管理.md)
+
 > [其他](./note/c++.md)
 
 ## 编码实践和设计模式
@@ -37,15 +39,9 @@
 
 > [Linux 基本命令](./note/linux命令.md)
 
-> [linux gcc命令](./note/linux命令_gcc.md)
-
-> [linux tcpdump命令](./note/linux命令_tcpdump.md)
-
 > [linux 关于性能分析的命令](./note/linux命令_linux性能分析和优化.md)
 
-> [bash&shell 编程](./note/bash&shell编程.md)
-
-> [linux 关于配置的命令](./note/linux配置.md)
+> [其他](./note/linux命令整理.md)
 
 > [unix环境高级编程](./note/unix环境高级编程.md)
 
@@ -63,7 +59,7 @@
 
 > [protobuff](./note/protobuff_with_golang_tutorial.md)
 
-> [id生成器]()
+> [id生成器](./note/分布式id生成.md)
 
 > [分布式锁](./note/分布式锁.md)
 
@@ -75,11 +71,7 @@
 
 > [make构建教程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_make%E6%95%99%E7%A8%8B.md)
 
-> [svn教程](https://www.jianshu.com/p/d6abd4a986a6)
-
 > [vscode插件](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/vscode%E5%86%99c%2B%2B%E6%8F%92%E4%BB%B6%E4%BB%A5%E5%8F%8A%E9%85%8D%E7%BD%AE.md)
-
-> [vim插件](https://www.jianshu.com/p/c527d9c2717a)
 
 ## 数据结构和算法
 
