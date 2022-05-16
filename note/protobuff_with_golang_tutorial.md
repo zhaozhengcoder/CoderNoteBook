@@ -2,7 +2,7 @@
 
 ## 为什么要protobuff ？
 
-    把关于我对data represent的理解，以及为什么要用pb这类组件的原因写在blog上面了：
+    protobuff的序列化和反序列化编码实现：
     https://www.jianshu.com/p/131f0bf218ef
 
 ## hello world

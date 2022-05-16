@@ -360,6 +360,21 @@ http://abcdxyzk.github.io/blog/2015/08/05/kernel-mm-malloc/
 
 ![tu](../pic/内存_1.png)
 
+
+#### 其他
+
+关于内存管理，除了了解内存的基本原理，还有整理了一些其他的东西，
+
+比如：C++不用工具，如何检测内存泄漏？
+
+https://www.jianshu.com/p/27e2a80a158c
+
+基于LD_PRELOAD的动态库函数hook
+https://www.jianshu.com/p/c2c6644a7380
+
+jemalloc内存profile
+https://www.jianshu.com/p/4f9689ffca2d
+
 ---
 ### 参考
 

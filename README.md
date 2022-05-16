@@ -29,6 +29,8 @@
 
 > [其他](./note/c++.md)
 
+> [C++踩坑指南](https://www.jianshu.com/p/b67222570785)
+
 ## 编码实践和设计模式
 
 > [设计模式](./note/设计模式.md)
@@ -42,10 +44,6 @@
 > [linux 关于性能分析的命令](./note/linux命令_linux性能分析和优化.md)
 
 > [linux 其他](./note/linux命令整理.md)
-
-> [unix环境高级编程](./note/unix环境高级编程.md)
-
-> [linux网络编程](./note/TCP和网络编程.md)
 
 ## 数据库
 
