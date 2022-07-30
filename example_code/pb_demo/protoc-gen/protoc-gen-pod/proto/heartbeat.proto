@@ -1,0 +1,23 @@
+syntax = "proto3";
+option go_package = ".;protocol";
+
+message HeartBeatReqMessage
+{
+    enum MachineEnum
+    {
+        E_PC      = 0;
+        E_IOS     = 1;
+        E_ANDRIOD = 2;
+    }
+
+    uint32 trace_id = 1;
+    uint32 ip = 2;
+    uint32 time = 3;
+    MachineEnum type = 4;
+}
+
+message HeartBeatRspMessage
+{
+    uint32 trace_id = 1;
+    uint32 ret = 2;
+}

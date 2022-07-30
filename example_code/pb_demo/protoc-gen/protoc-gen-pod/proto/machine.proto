@@ -1,0 +1,15 @@
+syntax = "proto3";
+option go_package = ".;protocol";
+
+message InfoMessage
+{
+    uint32 ip = 1;
+    uint32 time = 2;
+}
+
+message MachineInfoMessage
+{
+    uint32 trace_id = 1;
+    InfoMessage info  = 2;
+    uint32     type = 3;
+}

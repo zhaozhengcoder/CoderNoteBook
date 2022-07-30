@@ -1,0 +1,21 @@
+syntax = "proto3";
+// option go_package = "/custom;custom";
+
+package custom;
+option go_package = "/custom";
+
+import "google/protobuf/descriptor.proto";
+
+extend google.protobuf.FieldOptions
+{
+    // max count for repeated
+    optional uint32 opt_count = 50000;
+    // max count for repeated fixed
+    // optional uint32 fixed_max_count = 30001;
+    // real int type
+    // optional INT_TYPE int_type = 30002;
+    // max len of string
+    // optional uint32 str_len = 30003;
+    // gen pod ignore this field
+    // optional bool ignore = 30004 [default = false];
+}

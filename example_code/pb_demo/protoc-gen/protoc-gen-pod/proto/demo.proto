@@ -1,0 +1,17 @@
+syntax = "proto3";
+option go_package = ".;protocol";
+
+import "proto/custom_opt.proto";
+
+message UserMsg
+{
+    uint32 id     = 1;
+    uint32 age    = 2;
+    uint32 passwd = 3;
+}
+
+message FamilyMsg 
+{
+    repeated UserMsg familys    = 1 [(custom.opt_count)=10];
+    repeated uint32  rid_arrs   = 2 [(custom.opt_count)=50];
+}
