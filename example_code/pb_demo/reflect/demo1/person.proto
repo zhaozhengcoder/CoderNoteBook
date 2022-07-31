@@ -1,0 +1,8 @@
+syntax = "proto3";
+message PersonInfo
+{
+    uint32 id     = 1;
+    uint32 age    = 2;
+    uint32 passwd = 3;
+    string name   = 4;
+}
