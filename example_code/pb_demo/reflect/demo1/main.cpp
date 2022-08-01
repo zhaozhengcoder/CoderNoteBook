@@ -47,7 +47,7 @@ int fill_pb_message(google::protobuf::Message & message)
             {
                 cout << pReflection->GetUInt32(message, field) << endl;
 
-                // 利用反射填充对象
+                // 鍒╃敤鍙嶅皠濉厖瀵硅薄
                 int field_value = 666;
                 pReflection->SetUInt32(&message, field, field_value);
             }
@@ -96,7 +96,7 @@ int PbToMap(const google::protobuf::Message &message,
         {
             if (field->is_repeated()) 
             {
-                return -1; // 不支持转换repeated字段
+                return -1; // 涓嶆敮鎸佽浆鎹epeated瀛楁
             }
 
             const std::string &field_name = field->name();
@@ -112,7 +112,7 @@ int PbToMap(const google::protobuf::Message &message,
                 CASE_FIELD_TYPE_ENUM();
                 CASE_FIELD_TYPE_STRING();
             default:
-                return -1; // 其他异常类型
+                return -1; // 鍏朵粬寮傚父绫诲瀷
             }
         }
     }
@@ -389,18 +389,5 @@ int main()
     PbToMap(info, pb_map);
 
     int ret = string_to_pb();
-
-    // Student oStudent1;
-    // oStudent1.set_name("xiao");
-
-    // Student oStudent2;
-    // oStudent2.set_name("xiaowei");
-
-    // allCheck(oStudent1);
-    // allCheck(oStudent2);
-
     return ret;
 }
-
-// https://cloud.tencent.com/developer/article/1753977
-// https://blog.csdn.net/JMW1407/article/details/107223287
