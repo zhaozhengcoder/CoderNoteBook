@@ -22,5 +22,7 @@
 美团的一个分布式id的文章提供了一个解决办法，增加了一个时钟id的字段。当现在的时间小于等于上次申请的时间的时候，时钟id++。不过这个只能解决系统没有重启的情况。（如果遇到系统重启 + 时间回拨 那问题就这个方式就没有办法了）
 
 链接：
+
 https://tech.meituan.com/2017/04/21/mt-leaf.html
+
 https://blog.hackerpie.com/posts/algorithms/snowflake/multiple-clocks-snowflake/
