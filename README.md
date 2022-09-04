@@ -55,7 +55,7 @@
 
 > [协程](https://www.jianshu.com/p/c4de909fee75)
 
-> [protobuff](./note/protobuff_with_golang_tutorial.md)
+> [protobuff](https://www.jianshu.com/p/131f0bf218ef)
 
 > [id生成器](./note/分布式id生成.md)
 
@@ -63,7 +63,13 @@
 
 > [限频器](./note/limiter.md)
 
+> [消息队列](./note/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.md)
+
 ## 工具和锤子
+
+> [jemalloc](to-do)
+
+> [ASAN](to-do)
 
 > [git教程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/git%E6%95%99%E7%A8%8B.md)
 
