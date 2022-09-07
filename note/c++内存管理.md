@@ -390,3 +390,5 @@ https://www.zhihu.com/question/275695474/answer/1648135150
 
 5. 作者：yuantj
        链接：https://www.zhihu.com/question/406164583/answer/2040289707
+       
+6. https://www.zhangjiee.com/blog/2013/analyse-new-delete-malloc-free.html
