@@ -398,3 +398,8 @@ https://www.zhihu.com/question/275695474/answer/1648135150
 
 
     https://mp.weixin.qq.com/s/3bXAGR_7XLX21nkdl9dQ8Q
+
+7. 作者：yuantj
+       链接：https://www.zhihu.com/question/406164583/answer/2040289707
+       
+8. https://www.zhangjiee.com/blog/2013/analyse-new-delete-malloc-free.html
