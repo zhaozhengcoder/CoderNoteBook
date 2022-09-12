@@ -69,7 +69,7 @@
 
 > [jemalloc](to-do)
 
-> [ASAN](./note/asan.md)
+> [Address Sanitizer](./note/asan.md)
 
 > [git教程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/git%E6%95%99%E7%A8%8B.md)
 
