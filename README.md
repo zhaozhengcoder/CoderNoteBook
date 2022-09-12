@@ -67,7 +67,7 @@
 
 ## 工具和锤子
 
-> [jemalloc](to-do)
+> [jemalloc](./note/jemalloc.md)
 
 > [Address Sanitizer](./note/asan.md)
 
