@@ -388,5 +388,13 @@ https://www.zhihu.com/question/275695474/answer/1648135150
 
 4. https://wetest.qq.com/lab/view/318.html
 
-5. 作者：yuantj
-       链接：https://www.zhihu.com/question/406164583/answer/2040289707
+5. C++的new操作符，底层使用的是malloc吗，在析构时，是如何确定自己需要释放内存的大小的？ 作者：yuantj
+
+    链接：https://www.zhihu.com/question/406164583/answer/2040289707
+
+6. 关于vm和brk系统的分析：
+
+    https://blog.holbertonschool.com/hack-the-virtual-memory-malloc-the-heap-the-program-break/
+
+
+    https://mp.weixin.qq.com/s/3bXAGR_7XLX21nkdl9dQ8Q
