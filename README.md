@@ -71,6 +71,8 @@
 
 > [Address Sanitizer](./note/asan.md)
 
+> [收集些小工具，代码片段或轮子](./note/%E6%94%B6%E9%9B%86%E8%A7%81%E5%88%B0%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AE%E5%AD%90.md)
+
 > [git教程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/git%E6%95%99%E7%A8%8B.md)
 
 > [make构建教程](https://github.com/zhaozhengcoder/CoderNoteBook/blob/master/note/linux%E5%91%BD%E4%BB%A4_make%E6%95%99%E7%A8%8B.md)

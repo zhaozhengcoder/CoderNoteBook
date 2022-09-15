@@ -128,3 +128,11 @@ https://github.com/google/sanitizers/wiki/AddressSanitizer
     `-fsanitize=address替换成-fsanitize=leak`
 
     https://github.com/google/sanitizers/wiki/AddressSanitizerLeakSanitizer
+
+
+-----
+其他文档：
+
+* Linux下内存检测工具：asan 
+
+    http://www.cppblog.com/markqian86/archive/2018/06/14/215728.html
