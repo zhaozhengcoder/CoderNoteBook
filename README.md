@@ -57,13 +57,15 @@
 
 > [protobuff](https://www.jianshu.com/p/131f0bf218ef)
 
-> [id生成器](./note/分布式id生成.md)
+> [分布式id生成](./note/分布式id生成.md)
 
 > [分布式锁](./note/分布式锁.md)
 
-> [限频器](./note/limiter.md)
-
 > [消息队列](./note/%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97.md)
+
+> [缓存系统](https://www.jianshu.com/p/057da7850c93)
+
+> [限流器实现](./note/limiter.md)
 
 ## 工具和锤子
 
