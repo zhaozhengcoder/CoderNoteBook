@@ -67,6 +67,10 @@
 
 > [限流器实现](./note/limiter.md)
 
+> [PhysX基本概念](./note/PhysX.md)
+
+> [大型C++工程编译时间优化](./note/C++编译耗时优化.md)
+
 ## 工具和锤子
 
 > [jemalloc](./note/jemalloc.md)
