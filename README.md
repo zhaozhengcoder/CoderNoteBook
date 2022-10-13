@@ -67,7 +67,7 @@
 
 > [限流器实现](./note/limiter.md)
 
-> [PhysX基本概念](./note/PhysX.md)
+> [一致性哈希](./note/%E4%B8%80%E8%87%B4%E6%80%A7%E5%93%88%E5%B8%8C.md)
 
 > [大型C++工程编译时间优化](./note/C++编译耗时优化.md)
 
@@ -76,6 +76,8 @@
 > [jemalloc](./note/jemalloc.md)
 
 > [Address Sanitizer](./note/asan.md)
+
+> [PhysX基本概念](./note/PhysX.md)
 
 > [收集些小工具，代码片段或轮子](./note/%E6%94%B6%E9%9B%86%E8%A7%81%E5%88%B0%E8%BF%87%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B7%A5%E5%85%B7%E5%92%8C%E8%BD%AE%E5%AD%90.md)
 
