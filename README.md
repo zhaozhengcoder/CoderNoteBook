@@ -31,12 +31,6 @@
 
 > [C++踩坑指南](https://www.jianshu.com/p/b67222570785)
 
-## 编码实践和设计模式
-
-> [设计模式](./note/设计模式.md)
-
-> [Google-style 编码规范](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
-
 ## Linux和系统编程
 
 > [Linux 基本命令](./note/linux命令.md)
@@ -44,12 +38,6 @@
 > [linux 关于性能分析的命令](./note/linux命令_linux性能分析和优化.md)
 
 > [linux 其他](./note/linux命令整理.md)
-
-## 数据库
-
->[数据库系统基本概念](./note/数据库.md)
-
->[数据库索引](./note/数据库-索引.md)
 
 ### 乱七八糟的东西 
 
@@ -93,6 +81,17 @@
 
 >[关于系统设计类的问题](https://github.com/donnemartin/system-design-primer/blob/master/README-zh-Hans.md)
 
+## 数据库
+
+>[数据库系统基本概念](./note/数据库.md)
+
+>[数据库索引](./note/数据库-索引.md)
+
+## 编码实践和设计模式
+
+> [设计模式](./note/设计模式.md)
+
+> [Google-style 编码规范](https://zh-google-styleguide.readthedocs.io/en/latest/contents/)
 
 ## 书单和博客
 

@@ -152,7 +152,8 @@ git diff
 ## git的工具
 ```
 # 很漂亮的图形的显示项目的历史
-gitk
+* sourcetree
+* gitk
 ```
 
 ## 参考
