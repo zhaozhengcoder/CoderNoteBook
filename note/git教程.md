@@ -79,7 +79,7 @@ Git 里面又三个概念：分别是工作区，暂存区，和版本库。
 
 ---------
 
-## 查看
+### 查看
 ```
 git status
 git status -s
@@ -87,9 +87,9 @@ git log
 git log --stat
 git reflog
 ```
+---
 
-
-## 分支管理
+### 分支管理
 
 查看分支：
 ```
@@ -124,8 +124,8 @@ git merge dev
 ```
 git branch -d (branchname)
 ```
-
-## git diff
+----
+### git diff
 
 用git diff来找你当前工作目录和上次提交与本地索引间的差异。
 ```
@@ -136,7 +136,9 @@ git diff HEAD (diff 暂存区和版本库)
 git show 0b7454290bea
 ```
 
-## .gitignore
+---
+
+### .gitignore
 
 首先，在你的工作区新建一个名称为.gitignore的文件。
 **然后，把要忽略的文件名填进去，Git就会自动忽略这些文件。**
@@ -150,13 +152,15 @@ git show 0b7454290bea
 *.out
 ```
 
-## git的工具
+-------
+
+### git的工具
 ```
 # 很漂亮的图形的显示项目的历史
 * sourcetree
 ```
 
-## git配置
+### git配置
 
 * zsh 不卡顿
 ```
@@ -170,6 +174,30 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 git config credential.helper store
 ```
+
+-------
+
+### rebase
+
+https://waynerv.com/posts/git-rebase-intro/
+
+`git rebase master` 简单的讲，就是把在开发分支的改动先暂存起来，然后引用到master上。
+
+主要用途：
+
+rebase 通常用于重写提交历史。下面的使用场景在大多数 Git 工作流中是十分常见的：
+
+* 我们从 master 分支拉取了一条 feature 分支在本地进行功能开发
+* 远程的 master 分支在之后又合并了一些新的提交
+* 我们想在 feature 分支集成 master 的最新更改
+
+```
+git rebase master
+
+解决冲突
+git rebase --continue
+```
+----
 
 ## 参考
 
@@ -189,50 +217,4 @@ git config credential.helper store
 
 更新一部分：
 
-![tu](../pic/git_4.png)
-
-
 ![tu](../pic/git_5.png)
-
-
-### 分支管理
-
-merge表示的合并某一个分支到当前分支，**但是如果有冲突的话，需要收到解决冲突。**
-
-|命令|内容|
-|:---:|:---:|
-|git merge dev  | #在当前分支和并dev分支|
-|git checkout -b [branch-name]| 创建分支并且切换到这个分支|
-|git branch -d [branch-name]|删除分支|
-
-
-
-### reset命令
-
-reset 一般指的是将版本库的内容撤回到暂存区。
-但是，也可以加上--hard 之后，将版本库的内容直接撤回到workspace里面。
-
-
-![tu](../pic/git_6.JPG)
-
-| 命令 |  内容  |
-|:---:|:---:|
-|git reset -- test.txt    | 使用当前版本仓库里面的内容覆盖暂存区，用来覆盖最git add的内容| 
-|git reset —hard [commit]	| 暂存区、工作区的内容都会被修改到与提交点完全一致的状态 |
-|git reset --hard HEAD	|让工作区回到上次提交时的状态|
-|git reset —soft [commit]|	只改变提交点，暂存区和工作目录的内容都不改变|
-
-
-## checkout
-
-
-## diff 
-
-| 命令 |  内容  |
-|:---:|:---:|
-|git diff | 显示暂存区和工作区的差异|
-|git diff [file-name]|显示某一个文件，暂存区和工作区的差异|
-|git diff HEAD|显示工作区与当前分支最新commit之间的差异|
-
-
-## fetch 
