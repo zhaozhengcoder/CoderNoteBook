@@ -45,7 +45,7 @@ Git 里面又三个概念：分别是工作区，暂存区，和版本库。
 
 2. 修改后 git add，未commit
 
-    * git reset HEAD file          
+    * git reset HEAD file   (省略head也是可以的 git reset file)
 
         // 回滚单个文件
         
@@ -55,7 +55,7 @@ Git 里面又三个概念：分别是工作区，暂存区，和版本库。
         
         // 如果想回滚文件的内容，那么再次使用git checkout -- file
 
-    * git reset HEAD . 
+    * git reset HEAD .    (省略head也是可以的  git reset .)
 
         // 回滚全部
 
@@ -129,7 +129,11 @@ git branch -d (branchname)
 
 用git diff来找你当前工作目录和上次提交与本地索引间的差异。
 ```
-git diff
+git diff （diff 本地和暂存区）
+git diff HEAD (diff 暂存区和版本库)
+
+查看某次提交的改动细节
+git show 0b7454290bea
 ```
 
 ## .gitignore
@@ -150,6 +154,21 @@ git diff
 ```
 # 很漂亮的图形的显示项目的历史
 * sourcetree
+```
+
+## git配置
+
+* zsh 不卡顿
+```
+git config --add oh-my-zsh.hide-dirty 1
+git config --add oh-my-zsh.hide-status 1
+```
+
+* 不需要输入密码
+```
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+git config credential.helper store
 ```
 
 ## 参考
