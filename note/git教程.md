@@ -15,6 +15,8 @@
 
 6. 中心服务器用来交换每个用户的修改，没有中心服务器也能工作，但是中心服务器能够 24 小时保持开机状态，这样就能更方便的交换修改。**Github 就是一个中心服务器。**
 
+---
+
 ## Git
 
 Git 里面又三个概念：分别是工作区，暂存区，和版本库。
@@ -27,61 +29,55 @@ Git 里面又三个概念：分别是工作区，暂存区，和版本库。
 
 
 下面这个图展示了工作区、版本库中的暂存区和版本库之间的关系：
-
-![tu](../pic/git_1.JPG)
-
----
-
-* 图中左侧为工作区，右侧为版本库。在版本库中标记为 "index" 的区域是暂存区（stage, index），标记为 "master" 的是 master 分支所代表的目录树。图中我们可以看出此时 "HEAD" 实际是指向 master 分支的一个"游标"。所以图示的命令中出现 HEAD 的地方可以用 master 来替换。图中的 objects 标识的区域为 Git 的对象库，实际位于 ".git/objects" 目录下，里面包含了创建的各种对象及内容。
-
-* 当对工作区修改（或新增）的文件执行 "git add" 命令时，暂存区的目录树被更新，同时工作区修改（或新增）的文件内容被写入到对象库中的一个新的对象中，而该对象的ID被记录在暂存区的文件索引中。
-
-* 当执行提交操作（git commit）时，暂存区的目录树写到版本库（对象库）中，master 分支会做相应的更新。即 master 指向的目录树就是提交时暂存区的目录树。
-
-* 当执行 "git reset HEAD 或 commit_id " "git reset -- \<file> "命令时，暂存区的目录树会被重写，被 master 分支指向的目录树所替换，但是工作区不受影响。（git reset HEAD 命令用于取消已缓存的内容）
-
-* 当执行 "git rm --cached \<file> " 命令时，会直接从暂存区删除文件，工作区则不做出改变。
-
-* 当执行 "git checkout ." 或者 "git checkout -- \<file>" 命令时，会用暂存区全部或指定的文件替换工作区的文件。这个操作很危险，会清除工作区中未添加到暂存区的改动。
-
-* 当执行 "git checkout HEAD . 或 git checkoout commit_id .  " 或者 "git checkout HEAD \<file>" 命令时，会用 HEAD 指向的 master 分支中的全部或者部分文件替换暂存区和以及工作区中的文件。这个命令也是极具危险性的，因为不但会清除工作区中未提交的改动，也会清除暂存区中未提交的改动。
+![tu](../pic/git_6.JPG)
 
 ---
 
+提交的流程是比较简答的，整理一下**回滚的流程**。
 
-比如现在有一个文件 test.txt 
-```
-git add test.txt          把文件的修改添加到暂存区
-git commit -m 'add'       把暂存区的修改提交到当前分支，提交之后暂存区就被清空了
-git reset -- test.txt     使用当前分支上的修改覆盖暂存区，用来撤销最后一次 git add files
-git checkout -- test.txt  使用暂存区的修改覆盖工作目录，用来撤销本地修改
-```
+搞明白要回滚的内容处于哪个状态。
 
-![tu](../pic/git_3.JPG)
+1. 修改后 未git add
 
-可以跳过暂存区域直接从分支中取出修改，或者直接提交修改到分支中。
+    * git checkout -- file         // 回滚单个文件
 
-git commit -a 直接把所有文件的修改添加到暂存区然后执行提交。
+    * git checkout .               // 回滚全部
 
-git checkout HEAD -- files 取出最后一次修改，可以用来进行回滚操作。
+2. 修改后 git add，未commit
 
+    * git reset HEAD file          
 
-```
-# 如果不是很清楚，文件的修改是否从工作区 add 到了暂存区，还是已经commit 到了版本库，
-# 可以使用 git status 命令
-# 如果已经 commit，那么显示：
-git status
-位于分支 master
-无文件要提交，干净的工作区
-```
+        // 回滚单个文件
+        
+        // 这里的回滚流 指的是从版本库用head版本去覆盖stage区
 
+        // 对于这个文件的内容，它是没有变化的，只是文件的状态改变了（相当于去掉 git add状态）
+        
+        // 如果想回滚文件的内容，那么再次使用git checkout -- file
 
-撒销一个合并
-```
-# 如果你觉得你合并后的状态是一团乱麻，想把当前的修改都放弃，你可以用下面的命令回到合并之前的状态
-git reset --hard HEAD
-git reset --hard commit_id
-```
+    * git reset HEAD . 
+
+        // 回滚全部
+
+        // 这里的回滚流 指的是从版本库用head版本去覆盖stage区
+
+3. 修改后 git add，commit
+
+    * reset 回滚：
+
+        git reset commit-id --hard
+
+        git reflog 
+
+        // 查看回滚commit-id
+
+    * revert 回滚：
+
+        // 回滚会变成一次提交
+
+        git reset commit-id 
+
+---------
 
 ## 查看
 ```
@@ -89,6 +85,7 @@ git status
 git status -s
 git log
 git log --stat
+git reflog
 ```
 
 
@@ -153,7 +150,6 @@ git diff
 ```
 # 很漂亮的图形的显示项目的历史
 * sourcetree
-* gitk
 ```
 
 ## 参考
