@@ -131,6 +131,7 @@ git branch -d (branchname)
 ```
 git diff （diff 本地和暂存区）
 git diff HEAD (diff 暂存区和版本库)
+git diff dir  (仅对比某个目录下的diff)
 
 查看某次提交的改动细节
 git show 0b7454290bea
