@@ -4,7 +4,6 @@
 
 1. Git 属于分布式版本控制系统，而 SVN 属于集中式。
 
-
 2. 集中式版本控制只有中心服务器拥有一份代码，而分布式版本控制每个人的电脑上就有一份完整的代码。
 
 3. 集中式版本控制有安全性问题，当中心服务器挂了所有人都没办法工作了。
@@ -199,6 +198,33 @@ git rebase master
 git rebase --continue
 ```
 ----
+
+## git分支开发流程
+
+```
+# 创建一个新的分支dev
+git branch dev
+
+# 切换到这个分支
+git checkout dev 
+
+# 开工写代码
+# balalalala 
+
+# 写完了 提交
+# git add .
+# git commit -m "xxxx"
+
+# rebase master （反向合并master）
+# 防止有人在master加了新的东西，把master的内容合并到dev
+# 在dev分支执行rebase
+git rebase master (后面要处理一些冲突)
+
+# 切换到master分支
+# 把dev分支的内容合并到master上
+git merge dev
+```
+
 
 ## 参考
 
