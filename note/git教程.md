@@ -208,6 +208,9 @@ git branch dev
 # 切换到这个分支
 git checkout dev 
 
+# 推送这个分支到远端
+git push origin dev:dev
+
 # 开工写代码
 # balalalala 
 
