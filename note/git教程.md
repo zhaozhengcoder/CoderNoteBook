@@ -179,24 +179,58 @@ git config credential.helper store
 
 ### rebase
 
-https://waynerv.com/posts/git-rebase-intro/
+rebase常用来做两个事情，一个是`rebase master`这种操作;一个是重写提交记录这种操作;
 
-`git rebase master` 简单的讲，就是把在开发分支的改动先暂存起来，然后引用到master上。
+* rebase master
 
-主要用途：
+    https://waynerv.com/posts/git-rebase-intro/
 
-rebase 通常用于重写提交历史。下面的使用场景在大多数 Git 工作流中是十分常见的：
+    `git rebase master` 简单的讲，就是把在master的改动移动到新的分支上，然后再把在这个分支上提交的内容追加到后面。
 
-* 我们从 master 分支拉取了一条 feature 分支在本地进行功能开发
-* 远程的 master 分支在之后又合并了一些新的提交
-* 我们想在 feature 分支集成 master 的最新更改
+    ```
+    在开发过程中使用 git rebase 还是 git merge，优缺点分别是什么？ - 民工哥的回答 - 知乎
+    https://www.zhihu.com/question/36509119/answer/2009073898
+    ```
 
-```
-git rebase master
+* 重写提交记录
 
-解决冲突
-git rebase --continue
-```
+    在rebase前，可以先确认一下git默认的编辑器是不是vim，如果不是的话，可以先改为vim
+    git config --global core.editor "vim"
+
+    `git rebase -i HEAD~~`  把最近的2条记录合并，这个时候会进入到一个新的界面
+    `git rebase -i HEAD~3`  把最近的3条记录合并
+    `git rebase -i cf7e875`  合并这个版本之前的提交（不包含这个版本）
+    ```
+    pick c7f5204 [dev](update main.cpp)
+    pick 4c66629 update main.cpp
+
+    # Rebase 92037d5..4c66629 onto 92037d5 (2 commands)
+    #
+    # Commands:
+    # p, pick = use commit
+    # r, reword = use commit, but edit the commit message
+    # e, edit = use commit, but stop for amending
+    # s, squash = use commit, but meld into previous commit
+    # f, fixup = like "squash", but discard this commit's log message
+    # x, exec = run command (the rest of the line) using shell
+    # d, drop = remove commit
+    #
+    # These lines can be re-ordered; they are executed from top to bottom.
+    #
+    # If you remove a line here THAT COMMIT WILL BE LOST.
+    #
+    # However, if you remove everything, the rebase will be aborted.
+    #
+    # Note that empty commits are commented out
+    ```
+
+    把第二条改为
+    ```
+    pick c7f5204 [dev](update main.cpp)
+    s 4c66629 update main.cpp
+    ```
+
+    然后查看一下，多条记录已经合并了。
 ----
 
 ## git分支开发流程
@@ -221,10 +255,15 @@ git push origin dev:dev
 # 需要推送到远端的话
 git push origin dev
 
-# rebase master （反向合并master）
-# 防止有人在master加了新的东西，把master的内容合并到dev
-# 在dev分支执行rebase
+# 大功告成开发完毕
+# 切回 master 分支，拉取 master 的最新代码
+
+# 切回开发分支（反向合并master）
 git rebase master (后面要处理一些冲突)
+
+# 解决冲突的办法
+修改提示冲突的文件，git add xxx  // 标记已解决冲突
+git rebase --continue // 继续执行
 
 # 切换到master分支
 # 把dev分支的内容合并到master上
