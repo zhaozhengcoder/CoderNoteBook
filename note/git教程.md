@@ -274,6 +274,28 @@ git branch -d dev    git删除本地分支
 git push origin --delete branch    git删除远程分支
 ```
 
+# git tag
+```
+# 查看标签
+git tag 
+
+# 创建标签 (轻量标签)
+git tag v0.1
+
+# 创建附注标签
+git tag -a v0.2 -m "my version 0.2"
+
+# 查看细节
+git show v0.1
+
+# 共享标签
+git push origin v1.5
+git push origin --tags  # 推送所有的标签
+
+# 删除标签
+git tag -d v1.4-lw
+
+```
 
 ## 参考
 
