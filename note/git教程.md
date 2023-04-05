@@ -218,6 +218,9 @@ git push origin dev:dev
 # git add .
 # git commit -m "xxxx"
 
+# 需要推送到远端的话
+git push origin dev
+
 # rebase master （反向合并master）
 # 防止有人在master加了新的东西，把master的内容合并到dev
 # 在dev分支执行rebase
@@ -226,6 +229,10 @@ git rebase master (后面要处理一些冲突)
 # 切换到master分支
 # 把dev分支的内容合并到master上
 git merge dev
+
+# 删除分支dev
+git branch -d dev    git删除本地分支
+git push origin --delete branch    git删除远程分支
 ```
 
 
