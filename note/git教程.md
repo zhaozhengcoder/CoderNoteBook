@@ -297,6 +297,74 @@ git tag -d v1.4-lw
 
 ```
 
+---
+
+# 常用
+* 拉取远程非master分支
+
+  ```
+  git clone git@github.com:zhaozhengcoder/CoderNoteBook.git
+  
+  git checkout -b feature/dev-test origin/feature/dev-test
+  ```
+
+* 更新分支
+
+  ```
+   更新master
+   git pull origin master
+   
+   更新feature/dev-test分支 （远程分支和本地分支名一致）
+   切换到对应的分支在操作
+   git pull origin feature/dev-test
+   
+   如果远程分支名和本地分支名不一致的话
+   git pull origin origin_branch:local_branch
+   git pull origin feature/dev-test:feature/dev-test
+  ```
+
+* 如果更新的时候，出现冲突（本地也该了，远程也改了）
+
+  ```
+  $ git status
+  On branch master
+  Your branch is ahead of 'origin/master' by 2 commits.
+    (use "git push" to publish your local commits)
+  
+  You have unmerged paths.
+    (fix conflicts and run "git commit")
+    (use "git merge --abort" to abort the merge)
+  
+  Unmerged paths:
+    (use "git add <file>..." to mark resolution)
+  
+  	both modified:   readme.txt
+  
+  no changes added to commit (use "git add" and/or "git commit -a")
+  ```
+
+  ```
+  手动修改冲突的文件，然后
+  git add readme.md (冲突的文件名)
+  ```
+
+* 提交本地修改到远程分支
+
+  ```
+   git push origin feature/dev-test
+   
+   如果本地分支和远程分支名不一致
+   git push origin feature/dev-test:feature/dev-test
+  ```
+
+* 查看某个commit id的改动
+
+  ```
+  git show 2580fba
+  ```
+
+-------
+
 ## 参考
 
 - [廖雪峰教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
